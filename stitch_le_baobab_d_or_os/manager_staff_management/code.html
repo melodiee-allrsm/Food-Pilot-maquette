@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sidebar-active {
+            font-variation-settings: 'FILL' 1;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #dbc2b0;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"tertiary-fixed-dim": "#fcba66", "outline-variant": "#d9c2b3", "error-container": "#ffdad6", "surface-dim": "#e0d9d5", "secondary-container": "#fe8d53", "on-background": "#1e1b19", "surface-variant": "#e9e1dd", "on-secondary-fixed-variant": "#7b2f00", "surface-container": "#f4ece9", "on-error-container": "#93000a", tertiary: "#623c00", "on-secondary": "#ffffff", "inverse-surface": "#33302d", "on-secondary-container": "#6f2a00", "on-primary-container": "#ffcba3", "surface-container-low": "#faf2ee", "on-tertiary-fixed": "#2a1700", surface: "#fff8f5", "primary-container": "#8d4b00", "on-tertiary": "#ffffff", "surface-container-lowest": "#ffffff", "on-primary-fixed-variant": "#6e3900", "on-primary": "#ffffff", "surface-container-high": "#eee7e3", "on-surface": "#1e1b19", "secondary-fixed-dim": "#ffb694", "primary-fixed": "#ffdcc3", primary: "#6b3700", "surface-tint": "#904d02", error: "#ba1a1a", "primary-fixed-dim": "#ffb77d", "on-tertiary-container": "#ffcb8f", "inverse-on-surface": "#f7efeb", "tertiary-container": "#825100", "on-error": "#ffffff", "tertiary-fixed": "#ffddb8", "on-tertiary-fixed-variant": "#653e00", "inverse-primary": "#ffb77d", outline: "#867466", "secondary-fixed": "#ffdbcc", "surface-container-highest": "#e9e1dd", "on-surface-variant": "#534438", background: "#fff8f5", secondary: "#9d430d", "on-secondary-fixed": "#351000", "surface-bright": "#fff8f5", "on-primary-fixed": "#2f1500"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {unit: "8", "container-padding": "40px", gutter: "24px", "stack-sm": "12px", "stack-md": "24px", "stack-lg": "48px"}, fontFamily: {h2: ["notoSerif"], button: ["plusJakartaSans"], "body-lg": ["plusJakartaSans"], "body-md": ["plusJakartaSans"], h3: ["notoSerif"], h1: ["notoSerif"], "label-caps": ["plusJakartaSans"]}, fontSize: {h2: ["32px", {lineHeight: "1.3", fontWeight: "500"}], button: ["14px", {lineHeight: "1.0", fontWeight: "600"}], "body-lg": ["18px", {lineHeight: "1.6", fontWeight: "400"}], "body-md": ["16px", {lineHeight: "1.6", fontWeight: "400"}], h3: ["24px", {lineHeight: "1.4", fontWeight: "500"}], h1: ["48px", {lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "600"}], "label-caps": ["12px", {lineHeight: "1.0", letterSpacing: "0.1em", fontWeight: "600"}]}}}};</script>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-hidden">
+<!-- Sidebar (Shared Component) -->
+<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-full py-6 bg-[#FAFAF7] dark:bg-stone-950 h-screen w-64 border-r border-stone-200/60 dark:border-stone-800 z-40">
+<div class="px-6 mb-10">
+<h1 class="text-xl font-bold text-stone-900 dark:text-stone-50 font-serif">Le Baobab d'Or</h1>
+<p class="text-[10px] uppercase tracking-widest text-stone-500 font-medium">Restaurant Manager</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-900/50 transition-all duration-200 ease-in-out font-serif text-sm" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Tableau de bord
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-900/50 transition-all duration-200 ease-in-out font-serif text-sm" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+                Commandes
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-900/50 transition-all duration-200 ease-in-out font-serif text-sm" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+                Menu
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-amber-50 dark:bg-stone-900 text-amber-700 dark:text-amber-400 rounded-r-full font-medium font-serif text-sm" href="#">
+<span class="material-symbols-outlined sidebar-active">group</span>
+                Personnel
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-900/50 transition-all duration-200 ease-in-out font-serif text-sm" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+                Statistiques
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-900/50 transition-all duration-200 ease-in-out font-serif text-sm" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Paramètres
+            </a>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full bg-primary text-on-primary py-3 rounded-full font-button text-button shadow-sm hover:opacity-90 transition-all">
+                Nouvelle Réservation
+            </button>
+<div class="mt-6 pt-6 border-t border-stone-200/60 dark:border-stone-800">
+<a class="flex items-center gap-3 px-4 py-2 text-stone-500 hover:text-stone-900 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">logout</span>
+<span class="text-sm font-serif">Déconnexion</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="lg:ml-64 min-h-screen flex flex-col relative overflow-hidden">
+<!-- Top App Bar (Shared Component) -->
+<header class="flex justify-between items-center w-full px-8 h-16 sticky top-0 z-30 bg-[#FAFAF7] dark:bg-stone-950 border-b border-stone-200/60 dark:border-stone-800 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-4">
+<h2 class="text-h3 font-h3 text-on-surface">Équipe</h2>
+<div class="h-6 w-px bg-outline-variant/30"></div>
+<div class="flex gap-6">
+<button class="font-button text-button text-amber-700 dark:text-amber-400 border-b-2 border-amber-700 pb-1">Serveurs</button>
+<button class="font-button text-button text-stone-500 dark:text-stone-400 hover:text-amber-700 transition-colors">Cuisiniers</button>
+<button class="font-button text-button text-stone-500 dark:text-stone-400 hover:text-amber-700 transition-colors">Livreurs</button>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-xl">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full w-64 text-sm focus:ring-1 focus:ring-primary transition-all" placeholder="Rechercher un membre..." type="text"/>
+</div>
+<button class="flex items-center gap-2 bg-primary text-on-primary px-6 py-2 rounded-full font-button text-button shadow-sm hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-lg">person_add</span>
+                    Ajouter un membre
+                </button>
+<button class="p-2 text-on-surface hover:bg-stone-100 rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<!-- Personnel Table Section -->
+<section class="p-8 flex-1 overflow-y-auto">
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(28,25,23,0.04)] border border-stone-100 overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Nom &amp; Prénom</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Rôle</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Téléphone</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Statut</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-stone-100">
+<!-- Fatou Ndiaye -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full overflow-hidden bg-surface-container">
+<img class="h-full w-full object-cover" data-alt="portrait of a professional senegalese woman with a warm smile in a brightly lit modern office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKhRMdZ1VNgWuED3jiScsputRC1zH2QBo908ZNR0wFW3_47zLCePORz_FCnaPZ6fU5LgRNYinWJSU2zgrGGd_zNM6-H32jnF8Atj6YnDjcT3UE_e6Wup8mlMy8uFsvGVMw2ZH-7yQOGqD_on5sAzCwyVvoLAtLV9K53jyryiEgd4Y53LYymsjfUm3KvoryUlG9kaSO9tfnvBTBSV8xUo1XPbbea5gUL5F97k9fw64vWvTnCxh6sLU1rqYvU1vA02mBXFykJtNsZoT1"/>
+</div>
+<div>
+<div class="font-medium text-on-surface">Fatou Ndiaye</div>
+<div class="text-xs text-on-surface-variant">Inscrit depuis jan. 2023</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="bg-surface-container px-3 py-1 rounded-full text-xs font-semibold text-on-surface-variant">Serveur</span>
+</td>
+<td class="px-6 py-4 text-sm font-serif text-on-surface-variant">
+                                +221 77 123 45 67
+                            </td>
+<td class="px-6 py-4">
+<span class="bg-green-50 text-green-700 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider border border-green-100">Actif</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-stone-400 hover:text-primary hover:bg-stone-50 rounded-full transition-all"><span class="material-symbols-outlined text-lg">edit</span></button>
+<button class="p-2 text-stone-400 hover:text-primary hover:bg-stone-50 rounded-full transition-all"><span class="material-symbols-outlined text-lg">visibility</span></button>
+<button class="p-2 text-stone-400 hover:text-amber-600 hover:bg-stone-50 rounded-full transition-all"><span class="material-symbols-outlined text-lg">power_settings_new</span></button>
+<button class="p-2 text-stone-400 hover:text-error hover:bg-stone-50 rounded-full transition-all"><span class="material-symbols-outlined text-lg">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Mamadou Ba -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group bg-surface-container-low/10">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full overflow-hidden bg-surface-container">
+<img class="h-full w-full object-cover" data-alt="close-up portrait of a professional male chef in a white uniform with focused expression in a professional kitchen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWtFZePqRYQVbo4UJez4E1n62pQgzAdaS8N478SZpMHFXvtEpG76DEUMnJJKTKlUso5mfaPrkP0GIe0-PuCBeyDAeWM7G9ihUMJh1bJZp81h18Za5CF9NLe_8KPl6FouLiFsp1OI6JD3PtbqY5xA4Ep-sJiILgN3GyVt1kJwt4R7z5zhd0TfJqJhIMFBBQX5eHED15MuDALghB9MEYIlDPOmiLtU5t-nwRB0DJY72r9mGqHd-sVTkjSR7e_WSwqXY-agF1591O41u-"/>
+</div>
+<div>
+<div class="font-medium text-on-surface">Mamadou Ba</div>
+<div class="text-xs text-on-surface-variant">Inscrit depuis oct. 2022</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="bg-surface-container px-3 py-1 rounded-full text-xs font-semibold text-on-surface-variant">Chef</span>
+</td>
+<td class="px-6 py-4 text-sm font-serif text-on-surface-variant">
+                                +221 70 987 65 43
+                            </td>
+<td class="px-6 py-4">
+<span class="bg-amber-50 text-amber-700 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider border border-amber-100">En service</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-stone-400 hover:text-primary hover:bg-stone-50 rounded-full transition-all"><span class="material-symbols-outlined text-lg">edit</span></button>
+<button class="p-2 text-stone-400 hover:text-primary hover:bg-stone-50 rounded-full transition-all"><span class="material-symbols-outlined text-lg">visibility</span></button>
+<button class="p-2 text-stone-400 hover:text-amber-600 hover:bg-stone-50 rounded-full transition-all"><span class="material-symbols-outlined text-lg">power_settings_new</span></button>
+<button class="p-2 text-stone-400 hover:text-error hover:bg-stone-50 rounded-full transition-all"><span class="material-symbols-outlined text-lg">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Ibrahima Sarr -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full overflow-hidden bg-surface-container">
+<img class="h-full w-full object-cover" data-alt="portrait of a young african man with friendly expression wearing a casual jacket against a minimalist studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD-aKoSHjxncA-mw-r_OqYneZ27NzKvqYQGO9TQjVqxF1cjY-1stWBpguY3h-5LXWT2oHVClQbO6Vct2HyXFJZH6VITrDgfkOG_I6Ot3QuaxOLRJ98EqIAxnM8tS32u5RaQON642e9Us978z6IYQNPxIrtviPzup76djDn79Hlu1xuoxKYw8rmXL_9qm0myiobxXZTB2eOtfqWBw4v2YeWhm3PPx4lCTDlGaOEe1t7PEL-YpJR3i18r1ow2umxKKWwJt6mrJ8q30vJ"/>
+</div>
+<div>
+<div class="font-medium text-on-surface">Ibrahima Sarr</div>
+<div class="text-xs text-on-surface-variant">Inscrit depuis mar. 2023</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="bg-surface-container px-3 py-1 rounded-full text-xs font-semibold text-on-surface-variant">Livreur</span>
+</td>
+<td class="px-6 py-4 text-sm font-serif text-on-surface-variant">
+                                +221 76 456 78 90
+                            </td>
+<td class="px-6 py-4">
+<span class="bg-green-50 text-green-700 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider border border-green-100">Actif</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-stone-400 hover:text-primary hover:bg-stone-50 rounded-full transition-all"><span class="material-symbols-outlined text-lg">edit</span></button>
+<button class="p-2 text-stone-400 hover:text-primary hover:bg-stone-50 rounded-full transition-all"><span class="material-symbols-outlined text-lg">visibility</span></button>
+<button class="p-2 text-stone-400 hover:text-amber-600 hover:bg-stone-50 rounded-full transition-all"><span class="material-symbols-outlined text-lg">power_settings_new</span></button>
+<button class="p-2 text-stone-400 hover:text-error hover:bg-stone-50 rounded-full transition-all"><span class="material-symbols-outlined text-lg">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Right Side Panel: Profile Preview (Slide-out intent) -->
+<aside class="fixed top-16 right-0 h-[calc(100vh-64px)] w-80 bg-surface-container-lowest border-l border-stone-200/60 shadow-xl z-20 flex flex-col p-6 translate-x-0 transition-transform duration-300">
+<div class="flex items-center justify-between mb-8">
+<h4 class="font-h3 text-h3">Aperçu</h4>
+<button class="p-2 hover:bg-stone-100 rounded-full transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="text-center mb-8">
+<div class="h-24 w-24 rounded-full overflow-hidden bg-surface-container mx-auto mb-4 border-4 border-amber-50">
+<img class="h-full w-full object-cover" data-alt="close-up portrait of Fatou Ndiaye, restaurant server, smiling warmly at the camera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs4--1EVdkULHj_ykhB3LObD6zMsXjbn6WZPkW7SHF2fBdJ4HsW6ACqzChc7JOZhe7G7nz1hEa3wxFbt0IImapEWYa4Or10-rVLZw3N0P_5CCXbZZdoCnO-YWPlbX1z-oBvxxKWzWoKhtzm45hdL9ikKmynHHAYZnOySxVB4OMuORBiqaM9vk4Kj6dvB_yNaH6NGzTrJX3K93WNP8HQKsd3lt09bvYRW4WPi_FYUzo21f3sYfhlzAtvpdQG_Dco-TTuFoRKn06PdkB"/>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface">Fatou Ndiaye</h3>
+<p class="text-on-surface-variant font-medium">Serveur Senior</p>
+<div class="mt-2 flex justify-center gap-1">
+<span class="material-symbols-outlined text-amber-500" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-amber-500" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-amber-500" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-amber-500" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-stone-200">star</span>
+</div>
+</div>
+<div class="space-y-6">
+<div class="bg-surface-container-low p-4 rounded-xl">
+<div class="text-xs font-label-caps text-on-surface-variant mb-3 uppercase">Statistiques de performance</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<div class="text-h3 font-h3 text-primary">1,248</div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-wide">Commandes servies</div>
+</div>
+<div>
+<div class="text-h3 font-h3 text-primary">98%</div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-wide">Présence</div>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between text-sm">
+<span class="text-on-surface-variant">Satisfaction client</span>
+<span class="font-bold">4.8/5.0</span>
+</div>
+<div class="w-full bg-stone-200 h-1.5 rounded-full overflow-hidden">
+<div class="bg-amber-600 h-full w-[96%]"></div>
+</div>
+<div class="flex items-center justify-between text-sm">
+<span class="text-on-surface-variant">Temps de service moy.</span>
+<span class="font-bold">12 min</span>
+</div>
+<div class="w-full bg-stone-200 h-1.5 rounded-full overflow-hidden">
+<div class="bg-amber-600 h-full w-[80%]"></div>
+</div>
+</div>
+<div class="pt-6 border-t border-stone-100">
+<button class="w-full py-3 border border-outline-variant text-on-surface rounded-full font-button text-button hover:bg-stone-50 transition-colors mb-3">
+                        Voir le dossier complet
+                    </button>
+<button class="w-full py-3 bg-stone-100 text-stone-900 rounded-full font-button text-button hover:bg-stone-200 transition-colors">
+                        Planning de la semaine
+                    </button>
+</div>
+</div>
+</aside>
+</main>
+<!-- Bottom Navigation Bar (Shared Component - Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 pb-safe bg-[#FAFAF7]/95 dark:bg-stone-950/95 backdrop-blur-md border-t border-stone-200/60 dark:border-stone-800 shadow-[0_-4px_20px_rgba(28,25,23,0.04)]">
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] uppercase tracking-widest font-medium mt-1">Accueil</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="text-[10px] uppercase tracking-widest font-medium mt-1">Panier</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">event_seat</span>
+<span class="text-[10px] uppercase tracking-widest font-medium mt-1">Réservations</span>
+</a>
+<a class="flex flex-col items-center justify-center text-amber-700 dark:text-amber-400 relative after:content-[''] after:absolute after:-top-2 after:w-8 after:h-0.5 after:bg-amber-700 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-[10px] uppercase tracking-widest font-medium mt-1">Compte</span>
+</a>
+</nav>
+</body></html>

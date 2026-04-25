@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"tertiary-fixed-dim": "#fcba66", "outline-variant": "#d9c2b3", "error-container": "#ffdad6", "surface-dim": "#e0d9d5", "secondary-container": "#fe8d53", "on-background": "#1e1b19", "surface-variant": "#e9e1dd", "on-secondary-fixed-variant": "#7b2f00", "surface-container": "#f4ece9", "on-error-container": "#93000a", tertiary: "#623c00", "on-secondary": "#ffffff", "inverse-surface": "#33302d", "on-secondary-container": "#6f2a00", "on-primary-container": "#ffcba3", "surface-container-low": "#faf2ee", "on-tertiary-fixed": "#2a1700", surface: "#fff8f5", "primary-container": "#8d4b00", "on-tertiary": "#ffffff", "on-primary": "#ffffff", "surface-container-high": "#eee7e3", "on-surface": "#1e1b19", "secondary-fixed-dim": "#ffb694", "primary-fixed": "#ffdcc3", primary: "#6b3700", "surface-tint": "#904d02", error: "#ba1a1a", "primary-fixed-dim": "#ffb77d", "on-tertiary-container": "#ffcb8f", "inverse-on-surface": "#f7efeb", "tertiary-container": "#825100", "on-error": "#ffffff", "tertiary-fixed": "#ffddb8", "on-tertiary-fixed-variant": "#653e00", "inverse-primary": "#ffb77d", outline: "#867466", "secondary-fixed": "#ffdbcc", "surface-container-highest": "#e9e1dd", "on-surface-variant": "#534438", background: "#fff8f5", secondary: "#9d430d", "on-secondary-fixed": "#351000", "surface-bright": "#fff8f5", "on-primary-fixed": "#2f1500", "surface-container-lowest": "#ffffff", "on-primary-fixed-variant": "#6e3900"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, fontFamily: {h2: ["notoSerif"], button: ["plusJakartaSans"], "body-lg": ["plusJakartaSans"], "body-md": ["plusJakartaSans"], h3: ["notoSerif"], h1: ["notoSerif"], "label-caps": ["plusJakartaSans"]}, fontSize: {h2: ["32px", {lineHeight: "1.3", fontWeight: "500"}], button: ["14px", {lineHeight: "1.0", fontWeight: "600"}], "body-lg": ["18px", {lineHeight: "1.6", fontWeight: "400"}], "body-md": ["16px", {lineHeight: "1.6", fontWeight: "400"}], h3: ["24px", {lineHeight: "1.4", fontWeight: "500"}], h1: ["48px", {lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "600"}], "label-caps": ["12px", {lineHeight: "1.0", letterSpacing: "0.1em", fontWeight: "600"}]}, spacing: {"stack-lg": "48px", "stack-sm": "12px", unit: "8", "stack-md": "24px", gutter: "24px", "container-padding": "40px"}}}};</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #FAFAF7;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-40">
+<!-- Top AppBar -->
+<header class="flex justify-between items-center w-full px-6 h-16 sticky top-0 z-50 bg-[#FAFAF7] dark:bg-stone-950 border-b border-stone-200/60 shadow-sm">
+<div class="flex items-center gap-2">
+<h1 class="text-2xl font-serif italic text-stone-900 dark:text-stone-50 font-serif tracking-tight">Le Baobab d'Or</h1>
+</div>
+<div class="flex items-center gap-4 text-amber-600 dark:text-amber-500">
+<button class="p-2 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors rounded-full active:opacity-80 transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors rounded-full active:opacity-80 transition-all">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<main class="max-w-md mx-auto px-6 pt-6">
+<!-- Search Section -->
+<div class="mb-8">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-4 pl-12 pr-6 focus:ring-2 focus:ring-primary text-body-md font-body-md placeholder-on-surface-variant/60 shadow-sm transition-all" placeholder="Rechercher une saveur..." type="text"/>
+</div>
+</div>
+<!-- Categories -->
+<div class="flex gap-3 overflow-x-auto pb-4 -mx-6 px-6 no-scrollbar">
+<button class="whitespace-nowrap px-6 py-2 bg-primary text-on-primary rounded-full font-button text-button shadow-md">Entrées</button>
+<button class="whitespace-nowrap px-6 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-button text-button hover:bg-surface-variant transition-colors">Plats</button>
+<button class="whitespace-nowrap px-6 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-button text-button hover:bg-surface-variant transition-colors">Desserts</button>
+<button class="whitespace-nowrap px-6 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-button text-button hover:bg-surface-variant transition-colors">Boissons</button>
+</div>
+<!-- Dish List (Bento-style Cards) -->
+<div class="grid grid-cols-1 gap-6 mt-6">
+<!-- Item 1 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(28,25,23,0.04)] overflow-hidden border border-stone-100 transition-all active:scale-[0.98]">
+<div class="aspect-[16/9] w-full relative">
+<img alt="Thiéboudienne" class="w-full h-full object-cover" data-alt="Authentic Senegalese Thiéboudienne dish with flavorful red rice, tender fish, and stewed vegetables served on a traditional ceramic plate with warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3gNUfGfeq2BL29dJvjoK-7wp9qemUDY3zNc_1NtcMiG3Pkf23KlhLKv_X4RPuSE6fdRkxFEq4ut_eWuxANrc10ZQeXqm70L0Ydb_-z7RL2Uo6Oz7d0GE3IDWx_NlipBsfG3K2b4CVzW3EnVg0uZUZaXEoIdBp0K1j6SoSyD8vl2JMADUqCKo8RiBRBNwP4kRkHWXQh31K7XDwKEbiLENBoSJOUpaAAdgv1TDRr_Zc3wLGhI2weTNA-4Zw9tU6-Pf-rSL07PObvimK"/>
+<div class="absolute top-4 right-4 bg-background/80 backdrop-blur-sm px-3 py-1 rounded-full border border-outline-variant/30">
+<span class="text-primary font-bold">3 500 FCFA</span>
+</div>
+</div>
+<div class="p-5 flex justify-between items-end">
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Thiéboudienne</h3>
+<p class="text-on-surface-variant font-body-md text-sm mt-1">Le plat national du Sénégal.</p>
+</div>
+<button class="bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-tint active:scale-90 transition-transform shadow-lg">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(28,25,23,0.04)] overflow-hidden border border-stone-100 transition-all active:scale-[0.98]">
+<div class="aspect-[16/9] w-full relative">
+<img alt="Yassa Poulet" class="w-full h-full object-cover" data-alt="Gourmet Yassa Poulet with caramelized onions, green olives, and marinated chicken leg served over fluffy white rice on a wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaguVBp5Tw4BllTSozHrXFbN6adNh_3Cuh4519FvQREuI6jTpWwMVHSz2rwPYy8zbyRTn8Ymp9tDA6uQBofghOU2uXWMECq_g_Fx6RIN7xvOOeV7KjyOTFvzCDetA_k19qBWapuP_ZgAZ4PpNsR7zWFX4KVhWxzA8-_2ZQgqTXQzV6xfdw9lJve3FtRh7L_kYufaYi4qivxhoqBOQYGi42zTJvR5_Oyl1gtnvyBnj1KhQtXW4WXIknmZFyI-MdRd68s3n3iSZRnR7C"/>
+<div class="absolute top-4 right-4 bg-background/80 backdrop-blur-sm px-3 py-1 rounded-full border border-outline-variant/30">
+<span class="text-primary font-bold">2 800 FCFA</span>
+</div>
+</div>
+<div class="p-5 flex justify-between items-end">
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Yassa Poulet</h3>
+<p class="text-on-surface-variant font-body-md text-sm mt-1">Poulet mariné au citron et oignons.</p>
+</div>
+<button class="bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-tint active:scale-90 transition-transform shadow-lg">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(28,25,23,0.04)] overflow-hidden border border-stone-100 transition-all active:scale-[0.98]">
+<div class="aspect-[16/9] w-full relative">
+<img alt="Mafé Bœuf" class="w-full h-full object-cover" data-alt="Rich Mafé Bœuf peanut stew with tender beef chunks and carrots in a deep orange sauce, artistic plating with fresh herbs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3wHDEnhEAqmwvBJk5zEvOauo0fYeId1t5q5umLnCWvDfCOpPb0m97EAY2vyr4LELLrXshtE0IEHue5G3ojImoYDq029uCIx5Nz3FbzU9OtvwEp7fLRaXyn5DLvEI0J6nlY04Iv6axgIqOi7gB-1heSq7JrVzmXCGuwgx-5II_IBwACQg91UK4GyAaPaRnUqDnMfDq6W824YGFmH6Zwp6JixOMnku12j3Om2sonZsWXlDI8hV8JCr_EHY---H4Jqrqv3AqN65eczuj"/>
+<div class="absolute top-4 right-4 bg-background/80 backdrop-blur-sm px-3 py-1 rounded-full border border-outline-variant/30">
+<span class="text-primary font-bold">3 200 FCFA</span>
+</div>
+</div>
+<div class="p-5 flex justify-between items-end">
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Mafé Bœuf</h3>
+<p class="text-on-surface-variant font-body-md text-sm mt-1">Ragoût onctueux à la sauce arachide.</p>
+</div>
+<button class="bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-tint active:scale-90 transition-transform shadow-lg">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(28,25,23,0.04)] overflow-hidden border border-stone-100 transition-all active:scale-[0.98]">
+<div class="aspect-[16/9] w-full relative">
+<img alt="Attieké Poisson" class="w-full h-full object-cover" data-alt="Traditional Ivorian Attieké with grilled tilapia fish, fresh tomato and onion salsa, served on a vibrant textile background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx44vIVJNuptEt5NDLK-3m_NmdlgI85qzk3ZwJLYf0fjLiJrahAtvNyjl1AzDUNO8FRL-xYwg8BDXjrH9PUi8Wp-mIJpUheNS6OduoAikcmTx8LK0H7SXW-iYO6HvTdBGb4mbK5psVSWHJkjkVEJTAyMiBo4ZjspA3eJsTApjz6TIIDfDlzJEy-e4hZGbftuOSo0mfqxz_Zl7jhKCuBsGVCbhK_AM8v2tyl2m7_gVvRAWAvTVPUzXSOgAhklPKo2RwGQuTlfbz4qwj"/>
+<div class="absolute top-4 right-4 bg-background/80 backdrop-blur-sm px-3 py-1 rounded-full border border-outline-variant/30">
+<span class="text-primary font-bold">2 500 FCFA</span>
+</div>
+</div>
+<div class="p-5 flex justify-between items-end">
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Attieké Poisson</h3>
+<p class="text-on-surface-variant font-body-md text-sm mt-1">Semoule de manioc et poisson braisé.</p>
+</div>
+<button class="bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-tint active:scale-90 transition-transform shadow-lg">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Cart Bottom Sheet / FAB Combination -->
+<div class="fixed bottom-24 left-0 w-full px-6 z-40 pointer-events-none">
+<div class="flex justify-end max-w-md mx-auto pointer-events-auto">
+<button class="bg-primary text-on-primary rounded-full px-6 py-4 flex items-center gap-3 shadow-xl active:scale-95 transition-transform">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-bold text-lg">6 300 FCFA</span>
+</button>
+</div>
+</div>
+<!-- Cart Bottom Sheet Simulation -->
+<div class="fixed bottom-0 left-0 w-full z-50 transition-all duration-300">
+<div class="bg-white rounded-t-[32px] shadow-[0_-8px_40px_rgba(0,0,0,0.08)] border-t border-stone-100 p-6 max-w-md mx-auto translate-y-[280px] hover:translate-y-0 cursor-pointer">
+<div class="w-12 h-1 bg-stone-300 rounded-full mx-auto mb-6"></div>
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-h2 text-h2">Votre Panier</h2>
+<span class="text-on-surface-variant font-body-md">2 articles</span>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-center py-2 border-b border-stone-50">
+<div>
+<p class="font-body-lg font-semibold">Thiéboudienne</p>
+<p class="text-sm text-on-surface-variant">1 x 3 500 FCFA</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="font-bold">1</span>
+<button class="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-stone-50">
+<div>
+<p class="font-body-lg font-semibold">Yassa Poulet</p>
+<p class="text-sm text-on-surface-variant">1 x 2 800 FCFA</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="font-bold">1</span>
+<button class="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary rounded-full py-4 font-bold text-lg shadow-lg active:scale-95 transition-transform flex items-center justify-center gap-2">
+<span>Passer la commande</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Bottom NavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 pb-safe bg-[#FAFAF7]/95 dark:bg-stone-950/95 backdrop-blur-md border-t border-stone-200/60 shadow-[0_-4px_20px_rgba(28,25,23,0.04)]">
+<a class="flex flex-col items-center justify-center text-amber-700 dark:text-amber-400 relative after:content-[''] after:absolute after:-top-2 after:w-8 after:h-0.5 after:bg-amber-700 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span class="text-[10px] uppercase tracking-widest font-medium mt-1">Menu</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="text-[10px] uppercase tracking-widest font-medium mt-1">Commandes</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">location_on</span>
+<span class="text-[10px] uppercase tracking-widest font-medium mt-1">Suivi</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] uppercase tracking-widest font-medium mt-1">Compte</span>
+</a>
+</nav>
+</body></html>

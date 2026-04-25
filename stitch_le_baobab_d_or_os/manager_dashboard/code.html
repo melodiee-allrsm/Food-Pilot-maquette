@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"tertiary-fixed-dim": "#fcba66", "outline-variant": "#d9c2b3", "error-container": "#ffdad6", "surface-dim": "#e0d9d5", "secondary-container": "#fe8d53", "on-background": "#1e1b19", "surface-variant": "#e9e1dd", "on-secondary-fixed-variant": "#7b2f00", "surface-container": "#f4ece9", "on-error-container": "#93000a", tertiary: "#623c00", "on-secondary": "#ffffff", "inverse-surface": "#33302d", "on-secondary-container": "#6f2a00", "on-primary-container": "#ffcba3", "surface-container-low": "#faf2ee", "on-tertiary-fixed": "#2a1700", surface: "#fff8f5", "primary-container": "#8d4b00", "on-tertiary": "#ffffff", "surface-container-lowest": "#ffffff", "on-primary-fixed-variant": "#6e3900", "on-primary": "#ffffff", "surface-container-high": "#eee7e3", "on-surface": "#1e1b19", "secondary-fixed-dim": "#ffb694", "primary-fixed": "#ffdcc3", primary: "#6b3700", "surface-tint": "#904d02", error: "#ba1a1a", "primary-fixed-dim": "#ffb77d", "on-tertiary-container": "#ffcb8f", "inverse-on-surface": "#f7efeb", "tertiary-container": "#825100", "on-error": "#ffffff", "tertiary-fixed": "#ffddb8", "on-tertiary-fixed-variant": "#653e00", "inverse-primary": "#ffb77d", outline: "#867466", "secondary-fixed": "#ffdbcc", "surface-container-highest": "#e9e1dd", "on-surface-variant": "#534438", background: "#fff8f5", secondary: "#9d430d", "on-secondary-fixed": "#351000", "surface-bright": "#fff8f5", "on-primary-fixed": "#2f1500"}, fontFamily: {h2: ["notoSerif"], button: ["plusJakartaSans"], "body-lg": ["plusJakartaSans"], "body-md": ["plusJakartaSans"], h3: ["notoSerif"], h1: ["notoSerif"], "label-caps": ["plusJakartaSans"]}, fontSize: {h2: ["32px", {lineHeight: "1.3", fontWeight: "500"}], button: ["14px", {lineHeight: "1.0", fontWeight: "600"}], "body-lg": ["18px", {lineHeight: "1.6", fontWeight: "400"}], "body-md": ["16px", {lineHeight: "1.6", fontWeight: "400"}], h3: ["24px", {lineHeight: "1.4", fontWeight: "500"}], h1: ["48px", {lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "600"}], "label-caps": ["12px", {lineHeight: "1.0", letterSpacing: "0.1em", fontWeight: "600"}]}, spacing: {"stack-lg": "48px", "stack-sm": "12px", unit: "8", "stack-md": "24px", gutter: "24px", "container-padding": "40px"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        body {
+            background-color: #FAFAF7;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-full py-6 bg-[#FAFAF7] dark:bg-stone-950 h-screen w-64 border-r border-stone-200/60 dark:border-stone-800 z-50">
+<div class="px-6 mb-10">
+<h1 class="text-xl font-bold text-stone-900 dark:text-stone-50 font-h1">Le Baobab d'Or</h1>
+<p class="text-xs text-stone-500 font-label-caps mt-1">Restaurant Manager</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Active Tab -->
+<a class="flex items-center gap-3 px-4 py-3 bg-amber-50 dark:bg-stone-900 text-amber-700 dark:text-amber-400 rounded-r-full font-medium transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-serif text-sm">Tableau de bord</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-900/50 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-serif text-sm">Commandes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-900/50 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-serif text-sm">Menu</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-900/50 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-serif text-sm">Équipe</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-900/50 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-serif text-sm">Statistiques</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-900/50 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-serif text-sm">Paramètres</span>
+</a>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full bg-amber-600 text-white rounded-full py-3 text-button font-button flex items-center justify-center gap-2 shadow-sm hover:bg-amber-700 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                Nouvelle Réservation
+            </button>
+<div class="mt-6 pt-6 border-t border-stone-200/60 flex items-center gap-3 px-2">
+<img alt="Moussa Diop" class="w-10 h-10 rounded-full object-cover" data-alt="close-up portrait of a professional African man with a friendly smile, wearing a clean white shirt, soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgReZzbFxfp-AHaOB7YcTtsCYfblqIKPv1SAkV6ej3PgjMc1W4gU_2R1USs1BleV0FpRfYGFRTU6w3xcemUjxGISxsI0z-rAXjvukZha-b-pvScua4knZvKi6sT8KPb-NWccSQtwrOHDMHyialDVzVoFJseFFNOKnPiebmrPNRzAx_v2SXN4o0tKBVd7JZ2_zflP94PzjxrL-QnqyQ9AQ6-4ukDTTUglO2YDh3SOcb9G-vE8JbhYo_i8IXorrRaTzVK7i3Do6ucgrm"/>
+<div>
+<p class="text-sm font-semibold text-stone-900">Moussa Diop</p>
+<p class="text-xs text-stone-500">Administrateur</p>
+</div>
+<button class="ml-auto text-stone-400">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 min-h-screen pb-20">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-8 h-20 sticky top-0 z-40 bg-[#FAFAF7] dark:bg-stone-950 border-b border-stone-200/60 dark:border-stone-800 shadow-sm dark:shadow-none">
+<div>
+<h2 class="text-h2 font-h2 text-stone-900">Tableau de bord</h2>
+<div class="flex items-center gap-2 text-stone-500 text-sm mt-1">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_today">calendar_today</span>
+<span class="font-body-md italic">Aujourd'hui, 24 Octobre 2023</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center bg-stone-100 dark:bg-stone-900 px-4 py-2 rounded-full border border-stone-200 dark:border-stone-800">
+<span class="material-symbols-outlined text-stone-400 mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-64" placeholder="Rechercher une commande..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-stone-600 hover:bg-stone-100 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-amber-600 rounded-full border-2 border-[#FAFAF7]"></span>
+</button>
+<div class="h-8 w-[1px] bg-stone-200 mx-2"></div>
+<div class="flex items-center gap-3">
+<span class="text-sm font-medium text-stone-900">Moussa Diop</span>
+<div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 font-bold">
+                            MD
+                        </div>
+</div>
+</div>
+</div>
+</header>
+<div class="p-8 max-w-[1400px] mx-auto">
+<!-- Row 1: KPI Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+<div class="bg-white p-6 rounded-xl shadow-[0_4px_20px_rgba(28,25,23,0.04)] border border-stone-100 transition-all hover:shadow-md">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center text-amber-600">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</div>
+<span class="text-xs font-label-caps text-green-600 bg-green-50 px-2 py-1 rounded-full">+12%</span>
+</div>
+<p class="text-stone-500 text-sm font-label-caps mb-1">Commandes</p>
+<h3 class="text-h2 font-h2 text-stone-900">147</h3>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-[0_4px_20px_rgba(28,25,23,0.04)] border border-stone-100 transition-all hover:shadow-md">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center text-amber-600">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<span class="text-xs font-label-caps text-green-600 bg-green-50 px-2 py-1 rounded-full">+8.4%</span>
+</div>
+<p class="text-stone-500 text-sm font-label-caps mb-1">Chiffre d'Affaires</p>
+<h3 class="text-h2 font-h2 text-stone-900">832 500 <span class="text-lg">FCFA</span></h3>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-[0_4px_20px_rgba(28,25,23,0.04)] border border-stone-100 transition-all hover:shadow-md">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center text-amber-600">
+<span class="material-symbols-outlined" data-icon="restaurant">restaurant</span>
+</div>
+<span class="text-xs font-label-caps text-stone-400 bg-stone-50 px-2 py-1 rounded-full">Occupé</span>
+</div>
+<p class="text-stone-500 text-sm font-label-caps mb-1">Tables</p>
+<h3 class="text-h2 font-h2 text-stone-900">9/14</h3>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-[0_4px_20px_rgba(28,25,23,0.04)] border border-stone-100 transition-all hover:shadow-md">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center text-amber-600">
+<span class="material-symbols-outlined" data-icon="delivery_dining">delivery_dining</span>
+</div>
+<span class="text-xs font-label-caps text-amber-600 bg-amber-50 px-2 py-1 rounded-full">En cours</span>
+</div>
+<p class="text-stone-500 text-sm font-label-caps mb-1">Livraisons</p>
+<h3 class="text-h2 font-h2 text-stone-900">6</h3>
+</div>
+</div>
+<!-- Row 2: Charts (Placeholders with visual representation) -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+<!-- Revenue Chart -->
+<div class="lg:col-span-2 bg-white p-8 rounded-xl shadow-[0_4px_20px_rgba(28,25,23,0.04)] border border-stone-100">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="text-h3 font-h3 text-stone-900">Revenus de la Semaine</h3>
+<p class="text-sm text-stone-500 mt-1">Comparaison par rapport à la semaine dernière</p>
+</div>
+<select class="text-sm border-stone-200 rounded-lg focus:ring-amber-500 focus:border-amber-500 py-1.5 pl-3 pr-8 text-stone-600">
+<option>7 derniers jours</option>
+<option>30 derniers jours</option>
+</select>
+</div>
+<!-- Visual representation of a chart using Tailwind -->
+<div class="h-64 flex items-end justify-between gap-2 relative">
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20">
+<div class="border-b border-stone-300 w-full"></div>
+<div class="border-b border-stone-300 w-full"></div>
+<div class="border-b border-stone-300 w-full"></div>
+<div class="border-b border-stone-300 w-full"></div>
+</div>
+<!-- Monday -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-amber-100 rounded-t-lg transition-all duration-300 group-hover:bg-amber-200" style="height: 40%"></div>
+<span class="text-xs font-label-caps text-stone-400">Lun</span>
+</div>
+<!-- Tuesday -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-amber-200 rounded-t-lg transition-all duration-300 group-hover:bg-amber-300" style="height: 65%"></div>
+<span class="text-xs font-label-caps text-stone-400">Mar</span>
+</div>
+<!-- Wednesday -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-amber-300 rounded-t-lg transition-all duration-300 group-hover:bg-amber-400" style="height: 55%"></div>
+<span class="text-xs font-label-caps text-stone-400">Mer</span>
+</div>
+<!-- Thursday -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-amber-400 rounded-t-lg transition-all duration-300 group-hover:bg-amber-500" style="height: 85%"></div>
+<span class="text-xs font-label-caps text-stone-400">Jeu</span>
+</div>
+<!-- Friday -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-amber-500 rounded-t-lg transition-all duration-300 group-hover:bg-amber-600" style="height: 95%"></div>
+<span class="text-xs font-label-caps text-stone-400">Ven</span>
+</div>
+<!-- Saturday -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-amber-600 rounded-t-lg transition-all duration-300 group-hover:bg-amber-700" style="height: 75%"></div>
+<span class="text-xs font-label-caps text-stone-400">Sam</span>
+</div>
+<!-- Sunday -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-amber-200 rounded-t-lg transition-all duration-300 group-hover:bg-amber-300" style="height: 45%"></div>
+<span class="text-xs font-label-caps text-stone-400">Dim</span>
+</div>
+</div>
+</div>
+<!-- Orders Distribution (Donut Chart Visual) -->
+<div class="bg-white p-8 rounded-xl shadow-[0_4px_20px_rgba(28,25,23,0.04)] border border-stone-100 flex flex-col">
+<h3 class="text-h3 font-h3 text-stone-900 mb-8">Répartition</h3>
+<div class="flex-1 flex items-center justify-center relative mb-8">
+<!-- Simulated Donut Chart -->
+<div class="w-48 h-48 rounded-full border-[16px] border-amber-600 border-l-stone-100 border-b-secondary relative flex items-center justify-center">
+<div class="text-center">
+<span class="text-h2 font-h2 text-stone-900">147</span>
+<p class="text-xs font-label-caps text-stone-500">Total</p>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between text-sm">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-amber-600"></span>
+<span class="text-stone-600">Sur place</span>
+</div>
+<span class="font-semibold text-stone-900">65%</span>
+</div>
+<div class="flex items-center justify-between text-sm">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="text-stone-600">À emporter</span>
+</div>
+<span class="font-semibold text-stone-900">25%</span>
+</div>
+<div class="flex items-center justify-between text-sm">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-stone-100"></span>
+<span class="text-stone-600">Livraison</span>
+</div>
+<span class="font-semibold text-stone-900">10%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Row 3: Recent Orders & Top Items -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+<!-- Recent Orders Table -->
+<div class="xl:col-span-2 bg-white rounded-xl shadow-[0_4px_20px_rgba(28,25,23,0.04)] border border-stone-100 overflow-hidden">
+<div class="p-6 border-b border-stone-100 flex items-center justify-between">
+<h3 class="text-h3 font-h3 text-stone-900">Commandes Récentes</h3>
+<button class="text-amber-600 text-sm font-semibold hover:underline">Voir tout</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-stone-50">
+<th class="px-6 py-4 font-label-caps text-stone-500 text-xs">ID</th>
+<th class="px-6 py-4 font-label-caps text-stone-500 text-xs">Table / Client</th>
+<th class="px-6 py-4 font-label-caps text-stone-500 text-xs">Status</th>
+<th class="px-6 py-4 font-label-caps text-stone-500 text-xs">Total</th>
+<th class="px-6 py-4 font-label-caps text-stone-500 text-xs">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-stone-50">
+<tr class="hover:bg-stone-50/50 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-stone-900">#8923</td>
+<td class="px-6 py-4">
+<div class="text-sm text-stone-900">Table 04</div>
+<div class="text-xs text-stone-400">12:45 • Amadou K.</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-amber-50 text-amber-700 text-[10px] font-bold rounded-full uppercase tracking-wider">En Cuisine</span>
+</td>
+<td class="px-6 py-4 text-sm font-semibold text-stone-900">12 500 F</td>
+<td class="px-6 py-4">
+<button class="p-2 text-stone-400 hover:text-amber-600 transition-colors">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-stone-50/50 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-stone-900">#8922</td>
+<td class="px-6 py-4">
+<div class="text-sm text-stone-900">Livraison</div>
+<div class="text-xs text-stone-400">12:30 • Sarah B.</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-green-50 text-green-700 text-[10px] font-bold rounded-full uppercase tracking-wider">Prêt</span>
+</td>
+<td class="px-6 py-4 text-sm font-semibold text-stone-900">45 200 F</td>
+<td class="px-6 py-4">
+<button class="p-2 text-stone-400 hover:text-amber-600 transition-colors">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-stone-50/50 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-stone-900">#8921</td>
+<td class="px-6 py-4">
+<div class="text-sm text-stone-900">Table 11</div>
+<div class="text-xs text-stone-400">12:15 • Jean-Luc M.</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-stone-100 text-stone-600 text-[10px] font-bold rounded-full uppercase tracking-wider">Servi</span>
+</td>
+<td class="px-6 py-4 text-sm font-semibold text-stone-900">18 900 F</td>
+<td class="px-6 py-4">
+<button class="p-2 text-stone-400 hover:text-amber-600 transition-colors">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-stone-50/50 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-stone-900">#8920</td>
+<td class="px-6 py-4">
+<div class="text-sm text-stone-900">À emporter</div>
+<div class="text-xs text-stone-400">12:05 • Mariama D.</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-stone-100 text-stone-600 text-[10px] font-bold rounded-full uppercase tracking-wider">Servi</span>
+</td>
+<td class="px-6 py-4 text-sm font-semibold text-stone-900">8 400 F</td>
+<td class="px-6 py-4">
+<button class="p-2 text-stone-400 hover:text-amber-600 transition-colors">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Top Plats List -->
+<div class="bg-white rounded-xl shadow-[0_4px_20px_rgba(28,25,23,0.04)] border border-stone-100 overflow-hidden">
+<div class="p-6 border-b border-stone-100 flex items-center justify-between">
+<h3 class="text-h3 font-h3 text-stone-900">Top Plats</h3>
+<span class="material-symbols-outlined text-stone-400" data-icon="more_horiz">more_horiz</span>
+</div>
+<div class="p-6 space-y-6">
+<!-- Plat 1 -->
+<div class="flex items-center gap-4">
+<img alt="Thieboudienne" class="w-12 h-12 rounded-lg object-cover" data-alt="vibrant traditional Senegalese Thieboudienne with red rice, fish, and vegetables on a ceramic plate, warm daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsxlmtEBVSVeiov5TyXkF-O95lE4gHbCjIxQSNF0X9KWA4w5uhhxKHOC1RQy1YdhJWUABKA0V-f2LN4pEN2TXAkS-ZmjXNaVwlcMKX6WF3BROFhZww5IqyymiBmMMMcX0onvTJOBHk4oKtrELj_vG_D9SannmsfSvgMqMCOjg35NrUdK7_Ksj3rD9XSqaT6F7JnslyV-ZOwkke7va8gRQ9FFW1ROnFvIl7QPd-_62MREy9ZHDfnOyigt3ZLcMoAdXhFLXwctuQgtn3"/>
+<div class="flex-1">
+<h4 class="text-sm font-bold text-stone-900">Thieboudienne Royal</h4>
+<p class="text-xs text-stone-500">42 ventes aujourd'hui</p>
+</div>
+<div class="text-right">
+<span class="text-sm font-semibold text-amber-600">8 500 F</span>
+</div>
+</div>
+<!-- Plat 2 -->
+<div class="flex items-center gap-4">
+<img alt="Yassa" class="w-12 h-12 rounded-lg object-cover" data-alt="succulent chicken yassa with caramelized onions and white rice, gourmet presentation, close-up with soft background blur" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNrs9xSAZZ4YwLlbrW_LFFooqpC_8i_SVNHQ_tTU_bsnppF6C8ytD0u0TN45akjjikbBnehdvW9qAGbXQ2sZ79SBRKMvCiCmmxwtHG8tAcp28beiFE0q3pNO1FN4XMES8b0scm1F3_CCavHaY5D1ioM-b8hr8B8RfkcCLcEbfKj8AvtH-A8sDr1s_E05wWPHFun1MqVEowZgpyQdfKpehf_TkMZiq9Ugo3TCZYxlgEO9PdubQ9dFcszNDTkzuPERQJsEm_MhFH42_j"/>
+<div class="flex-1">
+<h4 class="text-sm font-bold text-stone-900">Yassa au Poulet</h4>
+<p class="text-xs text-stone-500">38 ventes aujourd'hui</p>
+</div>
+<div class="text-right">
+<span class="text-sm font-semibold text-amber-600">6 500 F</span>
+</div>
+</div>
+<!-- Plat 3 -->
+<div class="flex items-center gap-4">
+<img alt="Mafé" class="w-12 h-12 rounded-lg object-cover" data-alt="hearty West African peanut stew with tender beef and vegetables, served in a rustic bowl, high-end food styling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH-D4qBpW8Tpg_lcusUgmAY_TW5QXRiv6cdz1Ba4XzOEbHtIt50YE7MYDr6ciaKz0vSiYT0EycBCsoSsMb0zkYlbRzLbb9RsOyjri7OIgTo_zwvbAXPK0fyBJ1IoMRj0EHIqVPMGaiYMYd0v1gA1feV2fNeQXNN7V8JCHq6xZaiQGFB9X59qqvXvLcKBimRa8gDEiF9I-1z6KmQW5UJsB2acd11Md0S6IqE2xyb51GgvvNKDqa0B4W-5E2Vi5TmHtygP3SAnf38lZs"/>
+<div class="flex-1">
+<h4 class="text-sm font-bold text-stone-900">Mafé de Boeuf</h4>
+<p class="text-xs text-stone-500">24 ventes aujourd'hui</p>
+</div>
+<div class="text-right">
+<span class="text-sm font-semibold text-amber-600">7 200 F</span>
+</div>
+</div>
+<!-- Plat 4 -->
+<div class="flex items-center gap-4">
+<img alt="Dibi" class="w-12 h-12 rounded-lg object-cover" data-alt="grilled lamb dibi with sliced onions and mustard, served on traditional butcher paper, authentic texture and lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCRCRWQVIeHaOysM_4gHdebv8fTW976luUDMGcBKKvnFQrJFA1B3LbcFqs77-ycnvsIHkH1veJwwPIbMPW9Hgt5wBlUp2oSXHhIp5xROjxGriN5vzghbyunTKPnIQEP-Sq4gInF_57ji5naBMBt3Wtv_cPbGUY3yRfsztF73ioJJ2BSDu7C6eoL_XzY02SjgHERrYxIvT4gv2Lw5CSWW1DrPImrKkmsiFbvU5BJIWLPeXknW4AfuOkLn-KB_MBxebG8BdBtuv4BSLs"/>
+<div class="flex-1">
+<h4 class="text-sm font-bold text-stone-900">Dibi d'Agneau</h4>
+<p class="text-xs text-stone-500">19 ventes aujourd'hui</p>
+</div>
+<div class="text-right">
+<span class="text-sm font-semibold text-amber-600">10 000 F</span>
+</div>
+</div>
+</div>
+<div class="p-6 bg-amber-50/50 border-t border-amber-100/50">
+<button class="w-full flex items-center justify-center gap-2 text-amber-700 text-sm font-semibold">
+                            Consulter les stocks
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 pb-safe bg-[#FAFAF7]/95 dark:bg-stone-950/95 backdrop-blur-md border-t border-stone-200/60 dark:border-stone-800 shadow-[0_-4px_20px_rgba(28,25,23,0.04)] lg:hidden">
+<a class="flex flex-col items-center justify-center text-amber-700 dark:text-amber-400 relative after:content-[''] after:absolute after:-top-2 after:w-8 after:h-0.5 after:bg-amber-700 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[10px] uppercase tracking-widest font-medium">Accueil</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="text-[10px] uppercase tracking-widest font-medium">Panier</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="event_seat">event_seat</span>
+<span class="text-[10px] uppercase tracking-widest font-medium">Réservations</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] uppercase tracking-widest font-medium">Compte</span>
+</a>
+</nav>
+</body></html>
