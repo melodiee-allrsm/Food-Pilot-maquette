@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion Cuisine — Food Pilot</title>
+  <meta name="description" content="Accès KDS cuisine — Selection du profil et saisie du PIN.">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="../assets/js/tailwind-config.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="kds-body flex items-center justify-center min-h-screen overflow-hidden" data-page="kds">
+
+  <!-- Deco lumières ambiantes -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px]"></div>
+    <div class="absolute -bottom-48 -left-32 w-[800px] h-[800px] rounded-full bg-secondary/5 blur-[150px]"></div>
+  </div>
+
+  <!-- Lien retour -->
+  <a href="../index.html" class="fixed top-6 left-6 z-50 flex items-center gap-2 text-stone-400 hover:text-primary-fixed-dim transition-colors font-label-caps text-xs">
+    <span class="material-symbols-outlined text-xl">arrow_back</span>
+    Accueil
+  </a>
+
+  <!-- Conteneur principal -->
+  <div class="relative z-10 w-full max-w-4xl px-6">
+
+    <!-- En-tête & Identity -->
+    <div class="text-center mb-12">
+      <h1 class="font-h1 text-h1 text-primary-fixed italic mb-3" id="kds-title">Food Pilot</h1>
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-secondary/20 border border-secondary/30 rounded-full">
+        <span class="material-symbols-outlined text-[#ffb694] text-lg">restaurant</span>
+        <p class="font-label-caps text-label-caps text-[#ffdbcc] tracking-widest" id="kds-poste-label">
+          Cuisine — Poste #1
+        </p>
+      </div>
+    </div>
+
+    <!-- Grille : Profils + PIN -->
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+
+      <!-- Selecteur de profils -->
+      <div class="flex flex-col gap-6">
+        <p class="font-label-caps text-label-caps text-outline-variant uppercase text-center md:text-left">
+          Selectionner un profil
+        </p>
+        <div class="grid grid-cols-2 gap-4" id="kds-profiles">
+          <!-- Profil 1 -->
+          <button
+            class="group flex flex-col items-center p-4 rounded-xl transition-all duration-300 border border-transparent hover:border-primary-fixed-dim/40 hover:bg-white/5"
+            data-profile="Amadou" data-role="Chef de Cuisine"
+          >
+            <div class="w-20 h-20 rounded-full overflow-hidden mb-3 border-2 border-stone-600 group-hover:scale-105 transition-transform">
+              <img class="w-full h-full object-cover" alt="Chef Amadou"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPWx3mdICZiSMTrNTi-an22UGosZYm2TJ876mqcvWXDC1gbhMjv9wWcBCUS0RHl1kDV8S1xGsOjq8tcNVx9dx4cMZRy5HMMoESXXUN80x-HHrAdJ49JlN8ydgfb9cCbreKrMGGfbjXV9SiitAQtLfRsfl3eNotOE71YZpyn87G4FIJGAhan36jq2faNEXlWx_w1fBmSBSIHD_meuhlVahyWAaJbLP5HGtfCdPLjbFX7JSmFvUdeNM7J2JOn0mqzr1jUVXmT1vFwaZ6">
+            </div>
+            <p class="text-sm font-semibold text-surface-container-low">Amadou</p>
+            <p class="font-label-caps text-[10px] text-outline-variant">Chef de Cuisine</p>
+          </button>
+          <!-- Profil 2 -->
+          <button
+            class="group flex flex-col items-center p-4 rounded-xl transition-all duration-300 border border-primary-fixed-dim/60 bg-primary/10"
+            data-profile="Moussa" data-role="Sous-Chef"
+          >
+            <div class="w-20 h-20 rounded-full overflow-hidden mb-3 border-2 border-primary-fixed group-hover:scale-105 transition-transform">
+              <img class="w-full h-full object-cover" alt="Sous-Chef Moussa"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0736lqTUNGpUYMvAefD77lcgU2U-VzTupcPxpF13Yhf-IMYoXwdxN7-EHShc9BSXlnLAsBqqax6eA30FyKx5t3zdwWNqCLME3rjHtfvpkwz65BtA7fuU0de09CQN_uSOpte7NBoQeH3vEPomYVndjyHurD8tHoRoKFLSYIYec_gBCStOZBOPnxJfEh8CR3PMJO9D0GfkUa4UJtS9Oqf7GOmGIdQeZgQNePxYtu-Xxcj5SpFZmitMJZeMvmd7cB-4G4GUQeEncawcc">
+            </div>
+            <p class="text-sm font-semibold text-primary-fixed">Moussa</p>
+            <p class="font-label-caps text-[10px] text-primary-fixed-dim">Sous-Chef</p>
+          </button>
+          <!-- Profil 3 -->
+          <button
+            class="group flex flex-col items-center p-4 rounded-xl transition-all duration-300 border border-transparent hover:border-primary-fixed-dim/40 hover:bg-white/5"
+            data-profile="Fatou" data-role="Pâtissière"
+          >
+            <div class="w-20 h-20 rounded-full overflow-hidden mb-3 border-2 border-stone-600 group-hover:scale-105 transition-transform">
+              <img class="w-full h-full object-cover" alt="Pâtissière Fatou"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBll0Jy9kCowR76pHM2eQV0XJ4WWje9VC16vqD7-QIxBc_uhTOkv2CfmShMKKX0h_5CLLgP_ad4jOirlnwnvxu2LzLBKKLtR0aY7AUSUy9rvTv-mAB4I86FkfsjkMCmBY_zmNbkLGnbPwQuVrhNcQXlVIZCruTDViPeQ5P_z4QbV_i6Yggnit1CjscvDdjDmQKD0NMhT7RVu0uX8bc1729jeQMapwCN5wNBeKG15Uy63TMG-glb-TySsoGHguwRJBcKHkfaweqamfKH">
+            </div>
+            <p class="text-sm font-semibold text-surface-container-low">Fatou</p>
+            <p class="font-label-caps text-[10px] text-outline-variant">Pâtissière</p>
+          </button>
+          <!-- Profil 4 -->
+          <button
+            class="group flex flex-col items-center p-4 rounded-xl transition-all duration-300 border border-transparent hover:border-primary-fixed-dim/40 hover:bg-white/5"
+            data-profile="Kofi" data-role="Chef de Partie"
+          >
+            <div class="w-20 h-20 rounded-full overflow-hidden mb-3 border-2 border-stone-600 group-hover:scale-105 transition-transform">
+              <img class="w-full h-full object-cover" alt="Chef de Partie Kofi"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjGqti4NC4JvP3Llyw4yK4C13zhm88qPbXMm4kaBpwzulSXta0Ph_K8lSiYJfUBn5hWRwDztoZZlbwnQbAG2qkCBdW0dLxD0kXBrJNwqC-AN5NG2YFJvSHMxf55EUwg0waairf3qKnUai4uqwA2AZfHCpcMSGqr0fJ4ech_M6QAh-Bh2DcYQEzYmJ_2akSSrsqrMiy1m4ZI45d5U9qjtImidGuGPBdKQnRCh00R8zihgD4C7j-hikW9Z1C1FDJfqh5pctOzZgjs7Vb">
+            </div>
+            <p class="text-sm font-semibold text-surface-container-low">Kofi</p>
+            <p class="font-label-caps text-[10px] text-outline-variant">Chef de Partie</p>
+          </button>
+        </div>
+      </div>
+
+      <!-- Pave PIN -->
+      <div class="bg-stone-900/40 backdrop-blur-xl border border-white/5 p-6 rounded-[32px] shadow-2xl">
+
+        <!-- Points PIN -->
+        <div class="flex justify-center gap-4 mb-6" id="kds-pin-display" aria-label="PIN">
+          <div class="w-4 h-4 rounded-full bg-stone-700 transition-all" data-pin-dot></div>
+          <div class="w-4 h-4 rounded-full bg-stone-700 transition-all" data-pin-dot></div>
+          <div class="w-4 h-4 rounded-full bg-stone-700 transition-all" data-pin-dot></div>
+          <div class="w-4 h-4 rounded-full bg-stone-700 transition-all" data-pin-dot></div>
+        </div>
+
+        <!-- Grille chiffres -->
+        <div class="grid grid-cols-3 gap-3">
+          <button class="aspect-square flex items-center justify-center font-h2 text-h2 text-surface-container-low bg-white/5 rounded-2xl hover:bg-white/10 active:scale-95 transition-all" data-pin-digit="1">1</button>
+          <button class="aspect-square flex items-center justify-center font-h2 text-h2 text-surface-container-low bg-white/5 rounded-2xl hover:bg-white/10 active:scale-95 transition-all" data-pin-digit="2">2</button>
+          <button class="aspect-square flex items-center justify-center font-h2 text-h2 text-surface-container-low bg-white/5 rounded-2xl hover:bg-white/10 active:scale-95 transition-all" data-pin-digit="3">3</button>
+          <button class="aspect-square flex items-center justify-center font-h2 text-h2 text-surface-container-low bg-white/5 rounded-2xl hover:bg-white/10 active:scale-95 transition-all" data-pin-digit="4">4</button>
+          <button class="aspect-square flex items-center justify-center font-h2 text-h2 text-surface-container-low bg-white/5 rounded-2xl hover:bg-white/10 active:scale-95 transition-all" data-pin-digit="5">5</button>
+          <button class="aspect-square flex items-center justify-center font-h2 text-h2 text-surface-container-low bg-white/5 rounded-2xl hover:bg-white/10 active:scale-95 transition-all" data-pin-digit="6">6</button>
+          <button class="aspect-square flex items-center justify-center font-h2 text-h2 text-surface-container-low bg-white/5 rounded-2xl hover:bg-white/10 active:scale-95 transition-all" data-pin-digit="7">7</button>
+          <button class="aspect-square flex items-center justify-center font-h2 text-h2 text-surface-container-low bg-white/5 rounded-2xl hover:bg-white/10 active:scale-95 transition-all" data-pin-digit="8">8</button>
+          <button class="aspect-square flex items-center justify-center font-h2 text-h2 text-surface-container-low bg-white/5 rounded-2xl hover:bg-white/10 active:scale-95 transition-all" data-pin-digit="9">9</button>
+          <button id="kds-backspace" class="aspect-square flex items-center justify-center text-surface-container-low/50 rounded-2xl hover:bg-white/5 transition-all" aria-label="Supprimer">
+            <span class="material-symbols-outlined text-2xl">backspace</span>
+          </button>
+          <button class="aspect-square flex items-center justify-center font-h2 text-h2 text-surface-container-low bg-white/5 rounded-2xl hover:bg-white/10 active:scale-95 transition-all" data-pin-digit="0">0</button>
+          <button id="kds-clear" class="aspect-square flex items-center justify-center text-surface-container-low/50 rounded-2xl hover:bg-white/5 transition-all" aria-label="Effacer">
+            <span class="material-symbols-outlined text-2xl">close</span>
+          </button>
+        </div>
+
+        <!-- Bouton accès KDS -->
+        <div class="mt-6">
+          <button
+            id="kds-submit"
+            class="w-full py-4 bg-primary-container hover:bg-primary text-on-primary-container font-button text-button rounded-full uppercase tracking-widest shadow-lg shadow-primary/20 active:scale-[0.98] transition-all"
+            data-href="kitchen-hub.html"
+          >
+            Acceder au KDS
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer système -->
+    <div class="fixed bottom-8 left-0 w-full px-10 flex justify-between items-center text-outline-variant/60">
+      <div class="flex items-center gap-4">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-sm">schedule</span>
+          <span class="font-label-caps text-xs" data-live-clock>--:--</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-green-500"></span>
+          <span class="font-label-caps text-xs">Serveur Connecte</span>
+        </div>
+      </div>
+      <a href="../index.html" class="text-stone-600 hover:text-primary-fixed transition-colors">
+        <span class="material-symbols-outlined">home</span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Lire le paramètre ?poste= dans l'URL
+    const posteParam = new URLSearchParams(window.location.search).get('poste') || '1';
+    document.getElementById('kds-poste-label').textContent = `Cuisine — Poste #${posteParam}`;
+    document.title = `Connexion Cuisine Poste ${posteParam} — Food Pilot`;
+    // PIN dots styling
+    document.querySelectorAll('[data-pin-dot]').forEach(dot => {
+      dot.classList.remove('bg-stone-700');
+      dot.classList.add('bg-stone-700');
+    });
+    // Profil selection
+    document.querySelectorAll('[data-profile]').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('[data-profile]').forEach(b => {
+          b.classList.remove('border-primary-fixed-dim/60','bg-primary/10');
+          b.classList.add('border-transparent');
+          b.querySelector('p:first-of-type')?.classList.remove('text-primary-fixed');
+          b.querySelector('p:last-of-type')?.classList.remove('text-primary-fixed-dim');
+        });
+        this.classList.add('border-primary-fixed-dim/60','bg-primary/10');
+        this.classList.remove('border-transparent');
+      });
+    });
+  </script>
+  <script src="../assets/js/store.js"></script>
+<script src="../assets/js/render.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>
+

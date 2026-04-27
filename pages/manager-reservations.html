@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Réservations — Food Pilot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="../assets/js/tailwind-config.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="font-body-md text-on-surface" data-page="manager-réservations" style="background:#FAFAF7;">
+
+<aside class="manager-sidebar">
+  <div class="manager-sidebar__brand"><h1>Food Pilot</h1><p>Restaurant Manager</p></div>
+  <nav>
+    <a href="manager-dashboard.html"><span class="material-symbols-outlined">dashboard</span>Tableau de bord</a>
+    <a href="manager-orders.html"><span class="material-symbols-outlined">receipt_long</span>Commandes</a>
+    <a href="manager-menu.html"><span class="material-symbols-outlined">menu_book</span>Menu</a>
+    <a href="manager-staff.html"><span class="material-symbols-outlined">group</span>Équipe</a>
+    <a href="manager-analytics.html"><span class="material-symbols-outlined">monitoring</span>Statistiques</a>
+    <a href="manager-réservations.html" class="active"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">event_seat</span>Réservations</a>
+    <a href="manager-inventory.html"><span class="material-symbols-outlined">inventory</span>Inventaire</a>
+    <a href="manager-settings.html"><span class="material-symbols-outlined">settings</span>Paramètres</a>
+  </nav>
+  <div class="manager-sidebar__footer">
+    <button id="btn-new-réservation" class="manager-sidebar__cta">+ Nouvelle Réservation</button>
+    <div class="manager-sidebar__user">
+      <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 font-bold text-sm flex-shrink-0">MD</div>
+      <div class="flex-1 min-w-0"><p class="text-sm font-semibold text-stone-900 truncate">Moussa Diop</p><p class="text-xs text-stone-500">Administrateur</p></div>
+      <button data-action="logout" class="text-stone-400 hover:text-primary transition-colors"><span class="material-symbols-outlined">logout</span></button>
+    </div>
+  </div>
+</aside>
+
+<main class="manager-main">
+  <header class="manager-topbar">
+    <h2>Réservations</h2>
+    <div class="flex items-center gap-4">
+      <input type="date" class="border border-stone-200 rounded-lg py-1.5 px-3 text-sm text-stone-600 outline-none">
+      <button class="p-2 text-on-surface hover:bg-stone-100 rounded-full transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+    </div>
+  </header>
+  <div class="p-8">
+    <div class="card overflow-hidden">
+      <div class="p-6 border-b border-stone-100 flex items-center justify-between">
+        <h3 class="font-h3 text-h3">Réservations du jour</h3>
+        <span class="badge badge--actif">12 réservations</span>
+      </div>
+      <table class="data-table">
+        <thead><tr><th>Nom</th><th>Heure</th><th>Couverts</th><th>Table</th><th>Statut</th><th class="text-right">Actions</th></tr></thead>
+        <tbody>
+          <tr><td class="font-medium">Famille Diallo</td><td>12:00</td><td>4</td><td>Table 03</td><td><span class="badge badge--actif">Confirmee</span></td><td><div class="flex justify-end gap-1"><button class="p-1.5 text-stone-400 hover:text-primary rounded-full"><span class="material-symbols-outlined text-lg">edit</span></button><button class="p-1.5 text-stone-400 hover:text-error rounded-full"><span class="material-symbols-outlined text-lg">delete</span></button></div></td></tr>
+          <tr><td class="font-medium">M. Konate</td><td>13:30</td><td>2</td><td>Table 07</td><td><span class="badge badge--en-service">En attente</span></td><td><div class="flex justify-end gap-1"><button class="p-1.5 text-stone-400 hover:text-primary rounded-full"><span class="material-symbols-outlined text-lg">edit</span></button><button class="p-1.5 text-stone-400 hover:text-error rounded-full"><span class="material-symbols-outlined text-lg">delete</span></button></div></td></tr>
+          <tr><td class="font-medium">Mme. Traore</td><td>19:00</td><td>6</td><td>Table 12</td><td><span class="badge badge--actif">Confirmee</span></td><td><div class="flex justify-end gap-1"><button class="p-1.5 text-stone-400 hover:text-primary rounded-full"><span class="material-symbols-outlined text-lg">edit</span></button><button class="p-1.5 text-stone-400 hover:text-error rounded-full"><span class="material-symbols-outlined text-lg">delete</span></button></div></td></tr>
+          <tr><td class="font-medium">Groupe Sow &amp; Co</td><td>20:30</td><td>10</td><td>Salle Privee</td><td><span class="badge badge--actif">Confirmee</span></td><td><div class="flex justify-end gap-1"><button class="p-1.5 text-stone-400 hover:text-primary rounded-full"><span class="material-symbols-outlined text-lg">edit</span></button><button class="p-1.5 text-stone-400 hover:text-error rounded-full"><span class="material-symbols-outlined text-lg">delete</span></button></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<script src="../assets/js/store.js"></script>
+<script src="../assets/js/render.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>
+

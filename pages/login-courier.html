@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion Coursier — Food Pilot</title>
+  <meta name="description" content="Espace coursier — Connexion pour gerer vos livraisons.">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="../assets/js/tailwind-config.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="font-body-md text-on-surface min-h-screen flex items-center justify-center p-6 bg-background" data-page="login-courier">
+
+  <!-- Retour -->
+  <a href="../index.html" class="fixed top-6 left-6 z-50 flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors font-label-caps text-xs">
+    <span class="material-symbols-outlined text-xl">arrow_back</span>Accueil
+  </a>
+
+  <main class="w-full max-w-md">
+
+    <!-- Logo -->
+    <div class="text-center mb-10">
+      <div class="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-primary/20">
+        <span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings:'FILL' 1">delivery_dining</span>
+      </div>
+      <h1 class="font-h2 text-h2 text-on-surface mb-1">Espace Coursier</h1>
+      <p class="text-on-surface-variant">Food Pilot — Livraisons</p>
+    </div>
+
+    <!-- Carte formulaire -->
+    <div class="card p-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-green-50 text-green-700 rounded-full mb-6">
+        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse-dot"></span>
+        <span class="font-label-caps text-[10px]">SYSTÈME EN LIGNE</span>
+      </div>
+
+      <form id="form-login-courier" class="space-y-5" novalidate>
+
+        <!-- ID Coursier -->
+        <div class="form-field">
+          <label class="form-label" for="courier-id">ID Coursier</label>
+          <div class="form-input-group">
+            <span class="form-icon form-icon--left material-symbols-outlined"></span>
+            <input id="courier-id" class="form-input form-input-icon-left"
+              type="text" placeholder="EX: LIV-2024-012" required>
+          </div>
+        </div>
+
+        <!-- Telephone -->
+        <div class="form-field">
+          <label class="form-label" for="courier-phone">Numero de telephone</label>
+          <div class="form-input-group">
+            <span class="form-icon form-icon--left material-symbols-outlined"></span>
+            <input id="courier-phone" class="form-input form-input-icon-left"
+              type="tel" placeholder="+221 77 000 00 00">
+          </div>
+        </div>
+
+        <!-- Mot de passe -->
+        <div class="form-field">
+          <label class="form-label" for="courier-password">Mot de passe</label>
+          <div class="form-input-group relative">
+            <span class="form-icon form-icon--left material-symbols-outlined"></span>
+            <input id="courier-password" class="form-input form-input-icon-left form-input-icon-right"
+              type="password" placeholder="••••••••">
+            <button type="button" class="form-icon form-icon--right btn-toggle-pwd" aria-label="Afficher">
+              <span class="material-symbols-outlined" style="font-size:20px;">visibility</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Statut disponibilite -->
+        <label class="flex items-center gap-3 cursor-pointer py-2">
+          <div class="relative">
+            <input type="checkbox" id="courier-available" class="sr-only peer" checked>
+            <div class="w-10 h-5 bg-outline-variant/30 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+          </div>
+          <span class="text-sm text-on-surface-variant">Me signaler comme disponible</span>
+        </label>
+
+        <button type="submit" class="btn btn--primary btn--full btn--lg gap-2 mt-2">
+          <span class="material-symbols-outlined">delivery_dining</span>
+          Demarrer mes livraisons
+        </button>
+      </form>
+    </div>
+
+    <p class="text-center text-xs text-on-surface-variant mt-6 font-label-caps tracking-widest">
+      Food Pilot LIVRAISONS — DAKAR
+    </p>
+  </main>
+
+  <script src="../assets/js/store.js"></script>
+<script src="../assets/js/render.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>
+

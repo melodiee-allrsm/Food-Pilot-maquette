@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion Client — Food Pilot</title>
+  <meta name="description" content="Connectez-vous pour commander vos plats preferes au Food Pilot.">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="../assets/js/tailwind-config.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .bg-gradient-amber {
+      background: linear-gradient(to top, rgba(141,75,0,0.95) 0%, rgba(141,75,0,0.35) 55%, rgba(141,75,0,0) 100%);
+    }
+  </style>
+</head>
+<body class="font-body-md text-on-surface overflow-hidden" data-page="login-client" style="min-height:100dvh;">
+
+  <!-- Fond plein ecran -->
+  <div class="fixed inset-0 z-0">
+    <img
+      alt="Thiéboudienne — plat senegalais traditionnel"
+      class="w-full h-full object-cover"
+      src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcXmB9bOvZGIoJZwPHFUvT33DVCCVUnbbR3HwWe9WZqZE1XTZMmq-kd86IFiFKCodDz-i1oLxDNSHsIovNByHzgxnXd7HjSjjwIkW0evWs883Vq6ADPhKtBxLVtAdpAa1MPOz4FXG4Ucndzqdz3seuPIkTfwmtBoPJYXjisWaWxg4fD4WzUMHLvDaJvpRTLLS9_bnhrNv0ct--uF3OoHrhprHJ313qcCbch96AP0pL8kRfzmApG6iEVZDvL-GyBOB16Zxp6QJL8zH7"
+    >
+    <div class="absolute inset-0 bg-gradient-amber z-10"></div>
+  </div>
+
+  <!-- Lien retour accueil -->
+  <a href="../index.html" class="fixed top-6 left-6 z-50 flex items-center gap-2 text-white/80 hover:text-white transition-colors font-label-caps text-sm">
+    <span class="material-symbols-outlined text-xl">arrow_back</span>
+    Accueil
+  </a>
+
+  <!-- Contenu principal -->
+  <main class="relative z-20 flex flex-col items-center justify-center min-h-screen px-6 py-12">
+
+    <!-- Carte glassmorphisme -->
+    <div class="w-full max-w-md frosted-glass rounded-xl p-8 shadow-2xl flex flex-col items-center gap-6">
+
+      <!-- Logo & Brand -->
+      <div class="text-center">
+        <span class="font-h2 text-primary italic text-3xl block mb-1">Food Pilot</span>
+        <div class="h-0.5 w-12 bg-primary/30 rounded-full mx-auto mb-4"></div>
+        <h1 class="font-h2 text-h2 text-on-surface">Bienvenue</h1>
+        <p class="font-body-md text-on-surface-variant mt-1">Commandez vos plats preferes</p>
+      </div>
+
+      <!-- Formulaire -->
+      <form id="form-login-client" class="w-full space-y-4" novalidate>
+
+        <!-- Email / Telephone -->
+        <div class="form-field">
+          <label class="form-label" for="client-email">Email ou telephone</label>
+          <div class="form-input-group">
+            <input
+              id="client-email"
+              class="form-input form-input--underline"
+              type="text"
+              placeholder="nom@exemple.com"
+              autocomplete="email"
+              required
+            >
+          </div>
+        </div>
+
+        <!-- Mot de passe -->
+        <div class="form-field">
+          <label class="form-label" for="client-password">Mot de passe</label>
+          <div class="form-input-group relative">
+            <input
+              id="client-password"
+              class="form-input form-input--underline form-input-icon-right"
+              type="password"
+              placeholder="••••••••"
+              autocomplete="current-password"
+            >
+            <button type="button" class="form-icon form-icon--right btn-toggle-pwd" aria-label="Afficher le mot de passe">
+              <span class="material-symbols-outlined" style="font-size:20px;">visibility</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mot de passe oublie -->
+        <div class="flex justify-end">
+          <button type="button" class="font-label-caps text-label-caps text-primary hover:underline">
+            Mot de passe oublie ?
+          </button>
+        </div>
+
+        <!-- Bouton connexion -->
+        <button type="submit" id="btn-login-client" class="btn btn--primary btn--full btn--lg mt-2">
+          Se connecter
+        </button>
+      </form>
+
+      <!-- Separateur -->
+      <div class="w-full flex items-center gap-4">
+        <div class="flex-1 h-px bg-outline-variant/40"></div>
+        <span class="font-label-caps text-[10px] text-outline">OU</span>
+        <div class="flex-1 h-px bg-outline-variant/40"></div>
+      </div>
+
+      <!-- Google -->
+      <button type="button" class="w-full flex items-center justify-center gap-3 border border-outline-variant font-button text-button py-3.5 rounded-full bg-surface/30 hover:bg-surface/50 transition-colors">
+        <img alt="Logo Google" class="w-5 h-5"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNOFXab3dhgdudrxMaWdQk3cUfEVAgSHTRioRe4Qnr76OK0_9TDFJrD4Gh3wGq5cTJRX0yLcRVukj-mlJLBfgVfYcucRUS1ngCjEl6Erae6IcgoQayn1VFi0SZdpHJ_hvGYmS6S_NAz7fNFBSbM2k6Au-pk5OYSL0PweQJ7U-qy35H_1KbFpAh58JougHICJyWZFLQbdtoHhbGKXKi1AM0vsGd8CSXU0drhwk8a_WQsIQJwOSDTg6xsp1e50TCvmO-rJ61c5ML8JcX">
+        Continuer avec Google
+      </button>
+
+      <!-- Creer un compte -->
+      <p class="font-body-md text-on-surface-variant text-sm text-center">
+        Nouveau ici ?
+        <a href="#" class="text-primary font-semibold hover:underline px-1">Creer un compte</a>
+      </p>
+
+    </div>
+
+    <!-- Footer decoratif -->
+    <div class="mt-8 flex flex-col items-center gap-3 opacity-80">
+      <div class="flex gap-4">
+        <span class="material-symbols-outlined text-white">restaurant</span>
+        <span class="material-symbols-outlined text-white">dinner_dining</span>
+        <span class="material-symbols-outlined text-white">local_bar</span>
+      </div>
+      <p class="font-label-caps text-[10px] text-white/70 tracking-widest text-center">
+        L'ART DE LA GASTRONOMIE SÉNÉGALAISE À PARIS
+      </p>
+    </div>
+  </main>
+
+  <script src="../assets/js/store.js"></script>
+<script src="../assets/js/render.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>
+

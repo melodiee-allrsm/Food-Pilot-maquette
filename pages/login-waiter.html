@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion Serveur — Food Pilot</title>
+  <meta name="description" content="Espace serveur — Identification pour demarrer votre service.">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="../assets/js/tailwind-config.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="font-body-md text-on-surface min-h-screen flex items-center justify-center p-6 md:p-12 bg-background" data-page="login-waiter">
+
+  <!-- Lien retour -->
+  <a href="../index.html" class="fixed top-6 left-6 z-50 flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors font-label-caps text-xs">
+    <span class="material-symbols-outlined text-xl">arrow_back</span>
+    Accueil
+  </a>
+
+  <!-- Carte split -->
+  <main class="w-full max-w-5xl bg-surface rounded-xl overflow-hidden flex flex-col md:flex-row shadow-[0_4px_20px_rgba(28,25,23,0.06)] border border-stone-200/60 min-h-[600px]">
+
+    <!-- Image gauche -->
+    <section class="relative hidden md:block md:w-1/2 overflow-hidden">
+      <img
+        alt="Serveur professionnel en restaurant ouest-africain de luxe"
+        class="absolute inset-0 w-full h-full object-cover"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhHTrpacSWMUb7tUkndm2aXB3pbZkD3W5ZlS-cvcUxQ_yiz_WB_jW9wCbWDzRN2xgsI2mHdlZA-Bay70QEI_69DEpdUxXKrqtNY65jdf79ziKHT5YlIXdN2d6zv3iFSeRB-qvzvS_s1IkJFtLFYEknf7yTbAzTHlCQW7ELRYyld3ynBR5glA-7QsU_iZh72ePCAxnKnZNoQNAIItW8pXn4fXjHnjB8vmstZAgkdMmlFYNVYRicHyZgL9cG6G-E_zDWCiS9Hg-qwfWt"
+      >
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-12">
+        <p class="font-h2 text-white italic mb-2">Food Pilot</p>
+        <p class="text-white/80 max-w-xs">L'excellence du service, l'âme de l'hospitalité sénégalaise au cœur de la modernité.</p>
+      </div>
+    </section>
+
+    <!-- Formulaire droit -->
+    <section class="w-full md:w-1/2 p-8 md:p-14 flex flex-col justify-center bg-surface-container-lowest">
+
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary-fixed text-on-primary-fixed rounded-full mb-6 self-start">
+        <span class="material-symbols-outlined text-lg">verified_user</span>
+        <span class="font-label-caps text-[10px] uppercase tracking-widest">Personnel autorisé uniquement</span>
+      </div>
+
+      <h1 class="font-h2 text-h2 text-on-surface mb-2">Espace Serveur</h1>
+      <p class="text-on-surface-variant mb-8">Veuillez vous identifier pour commencer votre service.</p>
+
+      <form id="form-login-waiter" class="space-y-6" novalidate>
+
+        <!-- ID Employe -->
+        <div class="form-field">
+          <label class="form-label" for="employee-id">ID Employe</label>
+          <div class="form-input-group">
+            <span class="form-icon form-icon--left material-symbols-outlined"></span>
+            <input
+              id="employee-id"
+              class="form-input form-input--underline form-input-icon-left"
+              type="text"
+              placeholder="Ex: SRV-2024-001"
+              required
+            >
+          </div>
+        </div>
+
+        <!-- Mot de passe -->
+        <div class="form-field">
+          <label class="form-label" for="waiter-password">Mot de passe</label>
+          <div class="form-input-group relative">
+            <span class="form-icon form-icon--left material-symbols-outlined"></span>
+            <input
+              id="waiter-password"
+              class="form-input form-input--underline form-input-icon-left form-input-icon-right"
+              type="password"
+              placeholder="••••••••"
+            >
+            <button type="button" class="form-icon form-icon--right btn-toggle-pwd" aria-label="Afficher">
+              <span class="material-symbols-outlined" style="font-size:20px;">visibility</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Selecteur Shift -->
+        <div>
+          <span class="form-label block mb-3">Quart de travail (shift)</span>
+          <div class="flex gap-3">
+            <label class="flex-1 cursor-pointer">
+              <input type="radio" name="shift" value="matin" class="sr-only peer" checked>
+              <div class="text-center py-3 px-4 rounded-full border border-outline-variant text-sm font-semibold text-on-surface-variant peer-checked:bg-secondary-container peer-checked:text-on-secondary-container peer-checked:border-secondary-container transition-all">
+                Matin
+              </div>
+            </label>
+            <label class="flex-1 cursor-pointer">
+              <input type="radio" name="shift" value="soir" class="sr-only peer">
+              <div class="text-center py-3 px-4 rounded-full border border-outline-variant text-sm font-semibold text-on-surface-variant peer-checked:bg-secondary-container peer-checked:text-on-secondary-container peer-checked:border-secondary-container transition-all">
+                Soir
+              </div>
+            </label>
+            <label class="flex-1 cursor-pointer">
+              <input type="radio" name="shift" value="nuit" class="sr-only peer">
+              <div class="text-center py-3 px-4 rounded-full border border-outline-variant text-sm font-semibold text-on-surface-variant peer-checked:bg-secondary-container peer-checked:text-on-secondary-container peer-checked:border-secondary-container transition-all">
+                Nuit
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Bouton -->
+        <button type="submit" class="btn btn--primary btn--full btn--lg gap-2 mt-2">
+          Demarrer mon service
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
+      </form>
+
+      <!-- Footer meta -->
+      <div class="mt-10 text-center">
+        <p class="font-label-caps text-[10px] text-outline tracking-widest">SYSTÈME DE GESTION Food Pilot V2.0</p>
+        <div class="mt-3 flex justify-center gap-6">
+          <a href="#" class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 text-xs">
+            <span class="material-symbols-outlined text-base">help</span> Aide
+          </a>
+          <a href="../index.html" class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 text-xs">
+            <span class="material-symbols-outlined text-base">home</span> Accueil
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../assets/js/store.js"></script>
+<script src="../assets/js/render.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>
+

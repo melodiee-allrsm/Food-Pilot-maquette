@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KDS Cuisine — Food Pilot</title>
+  <meta name="description" content="Kitchen Display System — Gestion des commandes en cuisine.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="../assets/js/tailwind-config.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body class="kds-body overflow-hidden" data-page="kds" style="min-height:100dvh;">
+
+<!-- Header -->
+<header class="kds-header">
+  <div class="flex items-center gap-4">
+    <a href="kitchen-hub.html" class="p-2 text-stone-400 hover:text-amber-400 rounded-full hover:bg-stone-800 transition-all">
+      <span class="material-symbols-outlined">arrow_back</span>
+    </a>
+
+    <div class="flex flex-col">
+      <h1 class="font-h3 text-h3 text-amber-200 italic">Food Pilot</h1>
+      <p class="font-label-caps text-[10px] text-stone-400 uppercase tracking-widest">
+        KDS — Cuisine Poste #1
+      </p>
+    </div>
+
+    <div class="h-8 w-px bg-stone-700 hidden md:block"></div>
+
+    <div class="hidden md:flex items-center gap-2 px-3 py-1.5 bg-stone-900 rounded-full border border-stone-700">
+      <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse-dot"></span>
+      <span class="font-label-caps text-[10px] text-stone-400">EN LIGNE</span>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-4">
+    <div class="text-right hidden md:block">
+      <span class="font-h3 text-h3 text-amber-200" data-live-clock>--:--</span>
+      <p class="text-xs text-stone-500">Service en cours</p>
+    </div>
+
+    <button id="kds-refresh" class="p-2 text-stone-400 hover:text-amber-400 hover:bg-stone-800 rounded-full transition-all" title="Rafraîchir">
+      <span class="material-symbols-outlined">refresh</span>
+    </button>
+  </div>
+</header>
+
+<!-- Commandes -->
+<main class="p-6 overflow-x-auto overflow-y-hidden h-[calc(100vh-64px)]">
+  <div class="flex gap-5 h-full min-w-max">
+
+    <!-- Commande 3 -->
+    <div class="kds-card kds-card--waiting w-72 flex-shrink-0 flex flex-col">
+      <div class="kds-card-header">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs text-stone-400">#8925</span>
+            <span class="text-xs text-stone-500">• Table 07</span>
+          </div>
+          <p class="font-bold text-stone-400 text-lg">Table 07</p>
+        </div>
+
+        <div class="text-right">
+          <span class="text-xs bg-stone-800 text-stone-400 px-2 py-1 rounded-full">En attente</span>
+          <p class="text-xs text-stone-500 mt-1">12:45</p>
+        </div>
+      </div>
+
+      <div class="flex-1 p-4 space-y-3 opacity-60">
+        <p>×3 Thiéboudienne Royale</p>
+        <p>×1 Salade de mangue (sans coriandre)</p>
+      </div>
+
+      <div class="p-4 border-t border-stone-800">
+        <button class="kds-btn-start">Commencer la préparation</button>
+      </div>
+    </div>
+
+    <!-- Commande 1 -->
+    <div class="kds-card w-72 flex-shrink-0 flex flex-col">
+      <div class="kds-card-header">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs text-amber-400">#8923</span>
+            <span class="text-xs text-stone-400">• Table 04</span>
+          </div>
+          <p class="font-bold text-amber-300 text-lg">Table 04</p>
+        </div>
+
+        <div class="text-right">
+          <span class="text-xs bg-amber-900/40 text-amber-400 px-2 py-1 rounded-full">En préparation</span>
+          <p class="text-xs text-stone-400 mt-1">12:32 — 28 min</p>
+        </div>
+      </div>
+
+      <div class="flex-1 p-4 space-y-3">
+        <p>×2 Thiéboudienne Royale (sans piment)</p>
+        <p>×1 Yassa poulet (bien cuit)</p>
+      </div>
+
+      <div class="p-4 border-t border-stone-800">
+        <button class="kds-btn-ready">Passer en cuisson</button>
+      </div>
+    </div>
+
+    <!-- Commande 2 -->
+    <div class="kds-card w-72 flex-shrink-0 flex flex-col border border-orange-700/60">
+      <div class="kds-card-header">
+        <div>
+          <span class="text-xs text-orange-400">#8924 • Livraison</span>
+          <p class="font-bold text-orange-300 text-lg">Livraison</p>
+        </div>
+
+        <div class="text-right">
+          <span class="text-xs bg-orange-900/40 text-orange-400 px-2 py-1 rounded-full">En cuisson</span>
+          <p class="text-xs text-stone-400 mt-1">12:38 — 22 min</p>
+        </div>
+      </div>
+
+      <div class="flex-1 p-4 space-y-3">
+        <p>×1 Mafé de bœuf</p>
+        <p>×2 Dibi d'agneau</p>
+      </div>
+
+      <div class="p-4 border-t border-stone-800">
+        <button class="kds-btn-ready">Marquer prêt →</button>
+      </div>
+    </div>
+
+    <!-- Commande 4 -->
+    <div class="kds-card kds-card--ready w-72 flex-shrink-0 flex flex-col">
+      <div class="kds-card-header">
+        <div>
+          <span class="text-xs text-green-400">#8921 • Table 11</span>
+          <p class="font-bold text-green-300 text-lg">Table 11</p>
+        </div>
+
+        <div class="text-right">
+          <span class="text-xs bg-green-900/30 text-green-400 px-2 py-1 rounded-full">Prête</span>
+          <p class="text-xs text-stone-400 mt-1">12:15</p>
+        </div>
+      </div>
+
+      <div class="flex-1 p-4 space-y-3">
+        <p class="line-through">×2 Yassa poulet</p>
+        <p class="line-through">×1 Mafé de bœuf</p>
+      </div>
+
+      <div class="p-4 border-t border-green-900/30">
+        <button class="kds-btn-ready">Notifier le serveur →</button>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script src="../assets/js/store.js"></script>
+<script src="../assets/js/render.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>

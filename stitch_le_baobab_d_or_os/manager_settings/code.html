@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+</style>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#6b3700", "on-primary": "#ffffff", secondary: "#9d430d", background: "#fff8f5", surface: "#fff8f5", "on-surface": "#1e1b19", "on-surface-variant": "#534438", outline: "#867466", "outline-variant": "#d9c2b3", "surface-container-low": "#faf2ee"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, fontFamily: {h2: ["Noto Serif"], button: ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], h3: ["Noto Serif"], h1: ["Noto Serif"], "label-caps": ["Plus Jakarta Sans"]}, fontSize: {h2: ["32px", {lineHeight: "1.3", fontWeight: "500"}], button: ["14px", {lineHeight: "1.0", fontWeight: "600"}], "body-lg": ["18px", {lineHeight: "1.6", fontWeight: "400"}], "body-md": ["16px", {lineHeight: "1.6", fontWeight: "400"}], h3: ["24px", {lineHeight: "1.4", fontWeight: "500"}]}}}</script>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-hidden">
+<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-full py-6 bg-[#FAFAF7] h-screen w-64 border-r border-stone-200/60 z-40">
+<div class="px-6 mb-10">
+<h1 class="text-xl font-bold text-stone-900 font-h1">Food Pilot</h1>
+<p class="text-[10px] uppercase tracking-widest text-stone-500 font-medium">Restaurant Manager</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 hover:bg-stone-100 transition-all duration-200 font-serif text-sm" href="../manager_dashboard/code.html">
+<span class="material-symbols-outlined">dashboard</span>Tableau de bord</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 hover:bg-stone-100 transition-all duration-200 font-serif text-sm" href="../manager_orders/code.html">
+<span class="material-symbols-outlined">receipt_long</span>Commandes</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 hover:bg-stone-100 transition-all duration-200 font-serif text-sm" href="../manager_menu/code.html">
+<span class="material-symbols-outlined">menu_book</span>Menu</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 hover:bg-stone-100 transition-all duration-200 font-serif text-sm" href="../manager_staff_management/code.html">
+<span class="material-symbols-outlined">group</span>Personnel</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 hover:bg-stone-100 transition-all duration-200 font-serif text-sm" href="../manager_analytics/code.html">
+<span class="material-symbols-outlined">monitoring</span>Statistiques</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 hover:bg-stone-100 transition-all duration-200 font-serif text-sm" href="../manager_reservations/code.html">
+<span class="material-symbols-outlined">event_seat</span>Réservations</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 hover:bg-stone-100 transition-all duration-200 font-serif text-sm" href="../manager_inventory/code.html">
+<span class="material-symbols-outlined">inventory</span>Inventaire</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-amber-50 text-amber-700 rounded-r-full font-medium font-serif text-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings:'FILL'1">settings</span>Paramètres</a>
+</nav>
+<div class="px-4 mt-auto">
+<div class="mt-6 pt-6 border-t border-stone-200/60">
+<a class="flex items-center gap-3 px-4 py-2 text-stone-500 hover:text-stone-900" href="../../index.html">
+<span class="material-symbols-outlined text-xl">logout</span>
+<span class="text-sm font-serif">Déconnexion</span>
+</a>
+</div>
+</div>
+</aside>
+<main class="lg:ml-64 min-h-screen flex flex-col">
+<header class="flex justify-between items-center w-full px-8 h-16 sticky top-0 z-30 bg-[#FAFAF7] border-b border-stone-200/60 shadow-sm">
+<div class="flex items-center gap-4">
+<h2 class="text-h3 font-h3 text-on-surface">Paramètres</h2>
+</div>
+</header>
+<div class="p-8 max-w-2xl">
+<div class="bg-white rounded-xl shadow-sm border divide-y divide-stone-100">
+<div class="p-6">
+<h3 class="font-h3 text-h3 mb-4">Informations du Restaurant</h3>
+<div class="space-y-4">
+<div>
+<label class="block text-sm text-stone-500 mb-1">Nom du restaurant</label>
+<input class="w-full px-4 py-2 border border-stone-200 rounded-lg" value="Food Pilot" type="text"/>
+</div>
+<div>
+<label class="block text-sm text-stone-500 mb-1">Adresse</label>
+<input class="w-full px-4 py-2 border border-stone-200 rounded-lg" value="45 Rue de la Gastronomie, Paris" type="text"/>
+</div>
+<div>
+<label class="block text-sm text-stone-500 mb-1">Téléphone</label>
+<input class="w-full px-4 py-2 border border-stone-200 rounded-lg" value="+33 1 23 45 67 89" type="text"/>
+</div>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-h3 text-h3 mb-4">Horaire d'ouverture</h3>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-sm text-stone-500 mb-1">Jour</label>
+<select class="w-full px-4 py-2 border border-stone-200 rounded-lg">
+<option>Lundi - Dimanche</option>
+</select>
+</div>
+<div>
+<label class="block text-sm text-stone-500 mb-1">Heure d'ouverture</label>
+<input class="w-full px-4 py-2 border border-stone-200 rounded-lg" value="11:00" type="text"/>
+</div>
+<div>
+<label class="block text-sm text-stone-500 mb-1">Heure de fermeture</label>
+<input class="w-full px-4 py-2 border border-stone-200 rounded-lg" value="23:00" type="text"/>
+</div>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-h3 text-h3 mb-4">Configuration</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="text-sm">NotificationsPush</span>
+<input class="w-10 h-5 bg-primary rounded-full" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm">Confirmation automatique des réservations</span>
+<input class="w-10 h-5 bg-stone-200 rounded-full" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm">Mode maintenance</span>
+<input class="w-10 h-5 bg-stone-200 rounded-full" type="checkbox"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 flex gap-4">
+<button class="px-6 py-2 bg-primary text-white rounded-full font-button">Enregistrer</button>
+<button class="px-6 py-2 border border-stone-200 rounded-full font-button">Annuler</button>
+</div>
+</div>
+</main>
+</body>

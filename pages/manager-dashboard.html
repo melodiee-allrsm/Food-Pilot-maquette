@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau de Bord — Food Pilot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="../assets/js/tailwind-config.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="font-body-md text-on-surface" data-page="manager-dashboard" style="background:#FAFAF7;">
+
+<aside class="manager-sidebar">
+  <div class="manager-sidebar__brand"><h1>Food Pilot</h1><p>Restaurant Manager</p></div>
+  <nav>
+    <a href="manager-dashboard.html" class="active"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">dashboard</span>Tableau de bord</a>
+    <a href="manager-orders.html"><span class="material-symbols-outlined">receipt_long</span>Commandes</a>
+    <a href="manager-menu.html"><span class="material-symbols-outlined">menu_book</span>Menu</a>
+    <a href="manager-staff.html"><span class="material-symbols-outlined">group</span>Équipe</a>
+    <a href="manager-analytics.html"><span class="material-symbols-outlined">monitoring</span>Statistiques</a>
+    <a href="manager-réservations.html"><span class="material-symbols-outlined">event_seat</span>Réservations</a>
+    <a href="manager-inventory.html"><span class="material-symbols-outlined">inventory</span>Inventaire</a>
+    <a href="manager-settings.html"><span class="material-symbols-outlined">settings</span>Paramètres</a>
+  </nav>
+  <div class="manager-sidebar__footer">
+    <button id="btn-new-réservation" class="manager-sidebar__cta">+ Nouvelle Réservation</button>
+    <div class="manager-sidebar__user">
+      <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 font-bold text-sm flex-shrink-0">MD</div>
+      <div class="flex-1 min-w-0"><p class="text-sm font-semibold text-stone-900 truncate">Moussa Diop</p><p class="text-xs text-stone-500">Administrateur</p></div>
+      <button data-action="logout" class="text-stone-400 hover:text-primary transition-colors"><span class="material-symbols-outlined">logout</span></button>
+    </div>
+  </div>
+</aside>
+
+<main class="manager-main">
+  <header class="manager-topbar">
+    <div>
+      <h2>Tableau de bord</h2>
+      <div class="flex items-center gap-2 text-stone-500 text-sm mt-1">
+        <span class="material-symbols-outlined text-sm">calendar_today</span>
+        <span id="dashboard-date" class="italic">Chargement</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-4">
+      <div class="hidden md:flex items-center bg-stone-100 px-4 py-2 rounded-full border border-stone-200">
+        <span class="material-symbols-outlined text-stone-400 mr-2 text-sm">search</span>
+        <input class="bg-transparent border-none focus:ring-0 text-sm w-56 outline-none" placeholder="Rechercher une commande" type="text">
+      </div>
+      <button class="relative p-2 text-stone-600 hover:bg-stone-100 rounded-full transition-colors">
+        <span class="material-symbols-outlined">notifications</span>
+        <span class="absolute top-2 right-2 w-2 h-2 bg-amber-600 rounded-full border-2 border-[#FAFAF7]"></span>
+      </button>
+      <div class="flex items-center gap-2">
+        <span class="text-sm font-medium text-stone-900 hidden sm:block">Moussa Diop</span>
+        <div class="w-9 h-9 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 font-bold text-sm">MD</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="p-8 max-w-[1400px] mx-auto">
+
+    <!-- KPI Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div class="kpi-card">
+        <div class="flex items-center justify-between mb-4">
+          <div class="kpi-icon"><span class="material-symbols-outlined">shopping_cart</span></div>
+          <span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-full">+12%</span>
+        </div>
+        <p class="text-stone-500 text-xs font-semibold uppercase tracking-wide mb-1">Commandes</p>
+        <h3 class="font-h2 text-h2 text-stone-900">147</h3>
+      </div>
+      <div class="kpi-card">
+        <div class="flex items-center justify-between mb-4">
+          <div class="kpi-icon"><span class="material-symbols-outlined">payments</span></div>
+          <span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-full">+8.4%</span>
+        </div>
+        <p class="text-stone-500 text-xs font-semibold uppercase tracking-wide mb-1">Chiffre d'Affaires</p>
+        <h3 class="font-h2 text-h2 text-stone-900">832 500 <span class="text-lg font-normal">F</span></h3>
+      </div>
+      <div class="kpi-card">
+        <div class="flex items-center justify-between mb-4">
+          <div class="kpi-icon"><span class="material-symbols-outlined">restaurant</span></div>
+          <span class="text-xs font-bold text-stone-500 bg-stone-50 px-2 py-1 rounded-full">Occupe</span>
+        </div>
+        <p class="text-stone-500 text-xs font-semibold uppercase tracking-wide mb-1">Tables</p>
+        <h3 class="font-h2 text-h2 text-stone-900">9/14</h3>
+      </div>
+      <div class="kpi-card">
+        <div class="flex items-center justify-between mb-4">
+          <div class="kpi-icon"><span class="material-symbols-outlined">delivery_dining</span></div>
+          <span class="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-1 rounded-full">En cours</span>
+        </div>
+        <p class="text-stone-500 text-xs font-semibold uppercase tracking-wide mb-1">Livraisons</p>
+        <h3 class="font-h2 text-h2 text-stone-900">6</h3>
+      </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+      <div class="card p-8 lg:col-span-2">
+        <div class="flex items-center justify-between mb-8">
+          <div>
+            <h3 class="font-h3 text-h3 text-stone-900">Revenus de la Semaine</h3>
+            <p class="text-sm text-stone-500 mt-1">Comparaison vs semaine precedente</p>
+          </div>
+          <select id="revenue-period" class="text-sm border border-stone-200 rounded-lg py-1.5 pl-3 pr-8 text-stone-600 outline-none">
+            <option>7 derniers jours</option>
+            <option>30 derniers jours</option>
+          </select>
+        </div>
+        <div class="h-52 flex items-end justify-between gap-2 relative">
+          <div class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-10">
+            <div class="border-b border-stone-400 w-full"></div><div class="border-b border-stone-400 w-full"></div>
+            <div class="border-b border-stone-400 w-full"></div><div class="border-b border-stone-400 w-full"></div>
+          </div>
+          <div class="flex-1 flex flex-col items-center gap-2 group"><div class="w-full bg-amber-100 rounded-t-lg group-hover:bg-amber-200 transition-colors" style="height:40%"></div><span class="text-xs text-stone-400 font-semibold">Lun</span></div>
+          <div class="flex-1 flex flex-col items-center gap-2 group"><div class="w-full bg-amber-200 rounded-t-lg group-hover:bg-amber-300 transition-colors" style="height:65%"></div><span class="text-xs text-stone-400 font-semibold">Mar</span></div>
+          <div class="flex-1 flex flex-col items-center gap-2 group"><div class="w-full bg-amber-300 rounded-t-lg group-hover:bg-amber-400 transition-colors" style="height:55%"></div><span class="text-xs text-stone-400 font-semibold">Mer</span></div>
+          <div class="flex-1 flex flex-col items-center gap-2 group"><div class="w-full bg-amber-400 rounded-t-lg group-hover:bg-amber-500 transition-colors" style="height:85%"></div><span class="text-xs text-stone-400 font-semibold">Jeu</span></div>
+          <div class="flex-1 flex flex-col items-center gap-2 group"><div class="w-full bg-amber-500 rounded-t-lg group-hover:bg-amber-600 transition-colors" style="height:95%"></div><span class="text-xs text-stone-400 font-semibold">Ven</span></div>
+          <div class="flex-1 flex flex-col items-center gap-2 group"><div class="w-full bg-amber-600 rounded-t-lg group-hover:bg-amber-700 transition-colors" style="height:75%"></div><span class="text-xs text-stone-400 font-semibold">Sam</span></div>
+          <div class="flex-1 flex flex-col items-center gap-2 group"><div class="w-full bg-amber-200 rounded-t-lg group-hover:bg-amber-300 transition-colors" style="height:45%"></div><span class="text-xs text-stone-400 font-semibold">Dim</span></div>
+        </div>
+      </div>
+      <div class="card p-8 flex flex-col">
+        <h3 class="font-h3 text-h3 text-stone-900 mb-6">Repartition</h3>
+        <div class="flex-1 flex items-center justify-center mb-6">
+          <div class="w-40 h-40 rounded-full border-[14px] border-amber-600 border-l-stone-100 border-b-orange-400 flex items-center justify-center">
+            <div class="text-center"><span class="font-h2 text-h2 text-stone-900">147</span><p class="text-xs text-stone-500">Total</p></div>
+          </div>
+        </div>
+        <div class="space-y-3">
+          <div class="flex items-center justify-between text-sm"><div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-amber-600"></span><span>Sur place</span></div><span class="font-semibold">65%</span></div>
+          <div class="flex items-center justify-between text-sm"><div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-orange-400"></span><span>À emporter</span></div><span class="font-semibold">25%</span></div>
+          <div class="flex items-center justify-between text-sm"><div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-stone-200"></span><span>Livraison</span></div><span class="font-semibold">10%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Commandes + Top Plats -->
+    <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+      <div class="card xl:col-span-2 overflow-hidden">
+        <div class="p-6 border-b border-stone-100 flex items-center justify-between">
+          <h3 class="font-h3 text-h3 text-stone-900">Commandes Recentes</h3>
+          <a href="manager-orders.html" class="text-amber-600 text-sm font-semibold hover:underline">Voir tout</a>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="data-table">
+            <thead><tr><th>ID</th><th>Table / Client</th><th>Statut</th><th>Total</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr data-order-row>
+                <td class="font-medium">#8923</td>
+                <td><div class="font-medium text-sm">Table 04</div><div class="text-xs text-stone-400">12:45 a· Amadou K.</div></td>
+                <td><span class="badge badge--en-cuisine">En Cuisine</span></td>
+                <td class="font-semibold">12 500 F</td>
+                <td><button class="p-2 text-stone-400 hover:text-amber-600 transition-colors" data-action="view-order"><span class="material-symbols-outlined text-xl">visibility</span></button></td>
+              </tr>
+              <tr data-order-row>
+                <td class="font-medium">#8922</td>
+                <td><div class="font-medium text-sm">Livraison</div><div class="text-xs text-stone-400">12:30 a· Sarah B.</div></td>
+                <td><span class="badge badge--prêt">Prêt</span></td>
+                <td class="font-semibold">45 200 F</td>
+                <td><button class="p-2 text-stone-400 hover:text-amber-600 transition-colors" data-action="view-order"><span class="material-symbols-outlined text-xl">visibility</span></button></td>
+              </tr>
+              <tr data-order-row>
+                <td class="font-medium">#8921</td>
+                <td><div class="font-medium text-sm">Table 11</div><div class="text-xs text-stone-400">12:15 a· Jean-Luc M.</div></td>
+                <td><span class="badge badge--servi">Servi</span></td>
+                <td class="font-semibold">18 900 F</td>
+                <td><button class="p-2 text-stone-400 hover:text-amber-600 transition-colors" data-action="view-order"><span class="material-symbols-outlined text-xl">visibility</span></button></td>
+              </tr>
+              <tr data-order-row>
+                <td class="font-medium">#8920</td>
+                <td><div class="font-medium text-sm">À emporter</div><div class="text-xs text-stone-400">12:05 a· Mariama D.</div></td>
+                <td><span class="badge badge--servi">Servi</span></td>
+                <td class="font-semibold">8 400 F</td>
+                <td><button class="p-2 text-stone-400 hover:text-amber-600 transition-colors" data-action="view-order"><span class="material-symbols-outlined text-xl">visibility</span></button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card overflow-hidden">
+        <div class="p-6 border-b border-stone-100 flex items-center justify-between">
+          <h3 class="font-h3 text-h3 text-stone-900">Top Plats</h3>
+          <span class="material-symbols-outlined text-stone-400">more_horiz</span>
+        </div>
+        <div class="p-6 space-y-5">
+          <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600 font-bold flex-shrink-0">1</div><div class="flex-1 min-w-0"><p class="text-sm font-bold truncate">Thiéboudienne Royale</p><p class="text-xs text-stone-500">42 ventes</p></div><span class="text-sm font-semibold text-amber-600">8 500 F</span></div>
+          <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600 font-bold flex-shrink-0">2</div><div class="flex-1 min-w-0"><p class="text-sm font-bold truncate">Yassa au Poulet</p><p class="text-xs text-stone-500">38 ventes</p></div><span class="text-sm font-semibold text-amber-600">6 500 F</span></div>
+          <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600 font-bold flex-shrink-0">3</div><div class="flex-1 min-w-0"><p class="text-sm font-bold truncate">Mafe de Bœuf</p><p class="text-xs text-stone-500">24 ventes</p></div><span class="text-sm font-semibold text-amber-600">7 200 F</span></div>
+          <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600 font-bold flex-shrink-0">4</div><div class="flex-1 min-w-0"><p class="text-sm font-bold truncate">Dibi d'Agneau</p><p class="text-xs text-stone-500">19 ventes</p></div><span class="text-sm font-semibold text-amber-600">10 000 F</span></div>
+        </div>
+        <div class="p-4 bg-amber-50/50 border-t border-amber-100/50">
+          <a href="manager-menu.html" class="flex items-center justify-center gap-2 text-amber-700 text-sm font-semibold hover:underline">
+            Voir le menu <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="../assets/js/store.js"></script>
+<script src="../assets/js/render.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>
+

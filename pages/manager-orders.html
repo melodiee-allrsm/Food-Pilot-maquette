@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commandes — Food Pilot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="../assets/js/tailwind-config.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .active-tab { color: #b45309; border-bottom: 2px solid #b45309; }
+    .order-type { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 9999px; font-size: 12px; font-weight: 600; }
+  </style>
+</head>
+<body class="font-body-md text-on-surface" data-page="manager-orders" style="background:#FAFAF7;">
+
+<aside class="manager-sidebar">
+  <div class="manager-sidebar__brand"><h1>Food Pilot</h1><p>Restaurant Manager</p></div>
+  <nav>
+    <a href="manager-dashboard.html"><span class="material-symbols-outlined">dashboard</span>Tableau de bord</a>
+    <a href="manager-orders.html" class="active"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">receipt_long</span>Commandes</a>
+    <a href="manager-menu.html"><span class="material-symbols-outlined">menu_book</span>Menu</a>
+    <a href="manager-staff.html"><span class="material-symbols-outlined">group</span>Équipe</a>
+    <a href="manager-analytics.html"><span class="material-symbols-outlined">monitoring</span>Statistiques</a>
+    <a href="manager-réservations.html"><span class="material-symbols-outlined">event_seat</span>Réservations</a>
+    <a href="manager-inventory.html"><span class="material-symbols-outlined">inventory</span>Inventaire</a>
+    <a href="manager-settings.html"><span class="material-symbols-outlined">settings</span>Paramètres</a>
+  </nav>
+  <div class="manager-sidebar__footer">
+    <button class="manager-sidebar__cta">+ Nouvelle Réservation</button>
+    <div class="manager-sidebar__user">
+      <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 font-bold text-sm flex-shrink-0">MD</div>
+      <div class="flex-1 min-w-0"><p class="text-sm font-semibold text-stone-900 truncate">Moussa Diop</p><p class="text-xs text-stone-500">Administrateur</p></div>
+      <button data-action="logout" class="text-stone-400 hover:text-primary transition-colors"><span class="material-symbols-outlined">logout</span></button>
+    </div>
+  </div>
+</aside>
+
+<main class="manager-main">
+  <header class="manager-topbar">
+    <div class="flex items-center gap-6">
+      <h2>Commandes</h2>
+      <div class="h-6 w-px bg-outline-variant/30 hidden md:block"></div>
+      <div class="hidden md:flex gap-5">
+        <button class="font-button text-button active-tab pb-1" data-filter-orders="all">Toutes</button>
+        <button class="font-button text-button text-stone-500 hover:text-amber-700 transition-colors pb-1" data-filter-orders="en-cuisine">En cours</button>
+        <button class="font-button text-button text-stone-500 hover:text-amber-700 transition-colors pb-1" data-filter-orders="servi">Terminees</button>
+      </div>
+    </div>
+    <div class="flex items-center gap-4">
+      <div class="relative">
+        <span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-stone-400 text-xl">search</span>
+        <input id="orders-search" class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full w-52 text-sm focus:ring-1 focus:ring-primary outline-none" placeholder="Recherchera€¦" type="text">
+      </div>
+      <button class="p-2 text-on-surface hover:bg-stone-100 rounded-full transition-colors">
+        <span class="material-symbols-outlined">notifications</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="p-8">
+    <div class="card overflow-hidden">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ID</th><th>Type</th><th>Client</th><th>Serveur</th><th>Statut</th><th>Total</th><th>Heure</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-order-row data-order-status="en-cuisine">
+            <td class="font-medium">#8923</td>
+            <td><span class="order-type bg-stone-100 text-stone-600">Sur place</span></td>
+            <td>Table 04 — Amadou K.</td>
+            <td>Moussa D.</td>
+            <td><span class="badge badge--en-cuisine">En cuisine</span></td>
+            <td class="font-semibold">12 500 F</td>
+            <td class="text-stone-500">12:45</td>
+          </tr>
+          <tr data-order-row data-order-status="prêt">
+            <td class="font-medium">#8922</td>
+            <td><span class="order-type bg-blue-50 text-blue-700">Livraison</span></td>
+            <td>Sarah B.</td>
+            <td>—</td>
+            <td><span class="badge badge--prêt">Prêt</span></td>
+            <td class="font-semibold">45 200 F</td>
+            <td class="text-stone-500">12:30</td>
+          </tr>
+          <tr data-order-row data-order-status="servi">
+            <td class="font-medium">#8921</td>
+            <td><span class="order-type bg-stone-100 text-stone-600">Sur place</span></td>
+            <td>Table 11 — Jean-Luc M.</td>
+            <td>Fatou S.</td>
+            <td><span class="badge badge--servi">Servi</span></td>
+            <td class="font-semibold">18 900 F</td>
+            <td class="text-stone-500">12:15</td>
+          </tr>
+          <tr data-order-row data-order-status="servi">
+            <td class="font-medium">#8920</td>
+            <td><span class="order-type bg-orange-50 text-orange-700">À emporter</span></td>
+            <td>Mariama D.</td>
+            <td>Moussa D.</td>
+            <td><span class="badge badge--servi">Servi</span></td>
+            <td class="font-semibold">8 400 F</td>
+            <td class="text-stone-500">12:05</td>
+          </tr>
+          <tr data-order-row data-order-status="en-cuisine">
+            <td class="font-medium">#8919</td>
+            <td><span class="order-type bg-blue-50 text-blue-700">Livraison</span></td>
+            <td>Pierre L.</td>
+            <td>—</td>
+            <td><span class="badge badge--livraison">En livraison</span></td>
+            <td class="font-semibold">22 000 F</td>
+            <td class="text-stone-500">11:50</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mt-6 flex justify-between items-center">
+      <p class="text-sm text-stone-500">Affichage de 5 commandes sur 147</p>
+      <div class="flex gap-2">
+        <button class="btn btn--outline btn--sm">Precedent</button>
+        <button class="btn btn--outline btn--sm">Suivant</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="../assets/js/store.js"></script>
+<script src="../assets/js/render.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>
+

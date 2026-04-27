@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Pilot — Food Pilot</title>
+  <meta name="description" content="Food Pilot — Système de gestion du restaurant Food Pilot. Selectionnez votre espace de travail.">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="assets/js/tailwind-config.js" defer></script>
+
+  <!-- Styles centralises -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    .hero-gradient {
+      background: linear-gradient(135deg, #fff8f5 0%, #faf2ee 50%, #e0d9d5 100%);
+    }
+    .card-role {
+      background: white;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 4px 20px rgba(28,25,23,0.05);
+      border: 1px solid #ede8e5;
+      transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+      text-decoration: none; display: block;
+    }
+    .card-role:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(107,55,0,0.12);
+      border-color: rgba(107,55,0,0.2);
+    }
+    .card-role__icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px; font-size: 26px;
+    }
+    .badge-role {
+      display: inline-block; padding: 3px 10px;
+      border-radius: 9999px; font-size: 10px;
+      font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; margin-bottom: 12px;
+    }
+    .badge-role--dark  { background: #1c1917; color: white; }
+    .badge-role--light { background: #fff8f5; color: #6b3700; border: 1px solid #d9c2b3; }
+    .divider-line { height: 1px; background: linear-gradient(90deg, transparent, #d9c2b3, transparent); }
+  </style>
+</head>
+<body class="hero-gradient font-body-md min-h-screen">
+
+  <!-- En-tête portail -->
+  <header class="text-center pt-16 pb-10 px-6">
+    <div class="inline-flex items-center gap-3 mb-6">
+      <span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings:'FILL' 1">restaurant_menu</span>
+      <span class="font-label-caps text-label-caps text-outline uppercase tracking-widest">Food Pilot</span>
+    </div>
+    <h1 class="font-h1 text-h1 text-primary italic mb-3">Food Pilot</h1>
+    <p class="font-body-lg text-on-surface-variant max-w-md mx-auto">
+      Système de gestion du restaurant — Selectionnez votre espace de travail
+    </p>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 pb-16">
+
+    <!-- Section principale -->
+    <div class="divider-line mb-10"></div>
+
+    <!-- Espaces principaux -->
+    <section class="mb-10">
+      <p class="font-label-caps text-label-caps text-outline uppercase tracking-widest mb-6 text-center">Espaces principaux</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+        <!-- Client -->
+        <a href="pages/login-client.html" class="card-role" id="card-client">
+          <span class="badge-role badge-role--dark">Espace Client</span>
+          <div class="card-role__icon" style="background:#fff8f5;">
+            <span class="material-symbols-outlined text-primary">smartphone</span>
+          </div>
+          <h2 class="font-h3 text-h3 text-on-surface mb-2">Application Client</h2>
+          <p class="text-sm text-on-surface-variant mb-4">Menu mobile, commandes et suivi en direct</p>
+          <span class="btn btn--primary btn--sm">Se connecter →</span>
+        </a>
+
+        <!-- Manager -->
+        <a href="pages/login-manager.html" class="card-role" id="card-manager">
+          <span class="badge-role badge-role--dark">Espace Gérant</span>
+          <div class="card-role__icon" style="background:#fffbeb;">
+            <span class="material-symbols-outlined" style="color:#b45309">monitoring</span>
+          </div>
+          <h2 class="font-h3 text-h3 text-on-surface mb-2">Dashboard Manager</h2>
+          <p class="text-sm text-on-surface-variant mb-4">Tableau de bord, statistiques et gestion</p>
+          <span class="btn btn--primary btn--sm">Se connecter →</span>
+        </a>
+
+        <!-- Serveur -->
+        <a href="pages/login-waiter.html" class="card-role" id="card-waiter">
+          <span class="badge-role badge-role--light">Espace Serveur</span>
+          <div class="card-role__icon" style="background:#faf2ee;">
+            <span class="material-symbols-outlined text-primary">room_service</span>
+          </div>
+          <h2 class="font-h3 text-h3 text-on-surface mb-2">Tablette Serveur</h2>
+          <p class="text-sm text-on-surface-variant mb-4">Prise de commandes et gestion des tables</p>
+          <span class="btn btn--outline btn--sm">Se connecter →</span>
+        </a>
+
+        <!-- Cuisinier -->
+        <a href="pages/login-kitchen.html" class="card-role" id="card-kitchen">
+          <span class="badge-role badge-role--dark" style="background:#1c0a00;">Espace Cuisinier</span>
+          <div class="card-role__icon" style="background:#fff8f5;">
+            <span class="material-symbols-outlined" style="color:#fcba66;">restaurant</span>
+          </div>
+          <h2 class="font-h3 text-h3 text-on-surface mb-2">Espace Cuisinier</h2>
+          <p class="text-sm text-on-surface-variant mb-4">KDS, Menu et Alertes Stock</p>
+          <span class="btn btn--primary btn--sm">Se connecter →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Espaces operationnels -->
+    <section class="mb-10">
+      <p class="font-label-caps text-label-caps text-outline uppercase tracking-widest mb-6 text-center">Espaces operationnels</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5 max-w-2xl mx-auto">
+
+        <!-- Coursier -->
+        <a href="pages/login-courier.html" class="card-role" id="card-courier">
+          <span class="badge-role badge-role--light">Livraison</span>
+          <div class="card-role__icon" style="background:#f0fdf4;">
+            <span class="material-symbols-outlined" style="color:#15803d">delivery_dining</span>
+          </div>
+          <h2 style="font-size:16px;font-weight:600;margin-bottom:6px;color:#1c1917;">App Coursier</h2>
+          <p class="text-xs text-on-surface-variant mb-3">Gestion des livraisons</p>
+          <span class="btn btn--outline btn--sm">Acceder →</span>
+        </a>
+
+        <!-- Équipe -->
+        <a href="pages/manager-staff.html" class="card-role" id="card-staff">
+          <span class="badge-role badge-role--dark">Gestion</span>
+          <div class="card-role__icon" style="background:#eff6ff;">
+            <span class="material-symbols-outlined" style="color:#1d4ed8">group</span>
+          </div>
+          <h2 style="font-size:16px;font-weight:600;margin-bottom:6px;color:#1c1917;">Gestion Équipe</h2>
+          <p class="text-xs text-on-surface-variant mb-3">Personnel et planning</p>
+          <span class="btn btn--outline btn--sm">Voir →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Modules Manager (accès rapide) -->
+    <section>
+      <p class="font-label-caps text-label-caps text-outline uppercase tracking-widest mb-6 text-center">Modules Manager (accès direct)</p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <a href="pages/manager-orders.html" class="card-role text-center py-5 px-4">
+          <span class="material-symbols-outlined text-primary text-2xl block mb-2">receipt_long</span>
+          <span class="text-sm font-semibold text-on-surface">Commandes</span>
+        </a>
+        <a href="pages/manager-menu.html" class="card-role text-center py-5 px-4">
+          <span class="material-symbols-outlined text-primary text-2xl block mb-2">menu_book</span>
+          <span class="text-sm font-semibold text-on-surface">Menu</span>
+        </a>
+        <a href="pages/manager-analytics.html" class="card-role text-center py-5 px-4">
+          <span class="material-symbols-outlined text-primary text-2xl block mb-2">bar_chart</span>
+          <span class="text-sm font-semibold text-on-surface">Statistiques</span>
+        </a>
+        <a href="pages/manager-réservations.html" class="card-role text-center py-5 px-4">
+          <span class="material-symbols-outlined text-primary text-2xl block mb-2">event_seat</span>
+          <span class="text-sm font-semibold text-on-surface">Réservations</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-8 border-t border-outline-variant/30">
+    <div class="flex justify-center gap-6 mb-3">
+      <span class="material-symbols-outlined text-outline">restaurant</span>
+      <span class="material-symbols-outlined text-outline">dinner_dining</span>
+      <span class="material-symbols-outlined text-outline">local_bar</span>
+    </div>
+    <p class="font-label-caps text-label-caps text-outline tracking-widest">
+      L'ART DE LA GASTRONOMIE SÉNÉGALAISE — FOOD PILOT v2.0
+    </p>
+  </footer>
+
+  <script src="assets/js/store.js"></script>
+<script src="assets/js/render.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Équipe — Food Pilot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="../assets/js/tailwind-config.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .active-tab { color: #b45309; border-bottom: 2px solid #b45309; }
+    #staff-preview-panel { transition: transform 0.3s ease; }
+  </style>
+</head>
+<body class="font-body-md text-on-surface" data-page="manager-staff" style="background:#FAFAF7;overflow:hidden;">
+
+<aside class="manager-sidebar">
+  <div class="manager-sidebar__brand"><h1>Food Pilot</h1><p>Restaurant Manager</p></div>
+  <nav>
+    <a href="manager-dashboard.html"><span class="material-symbols-outlined">dashboard</span>Tableau de bord</a>
+    <a href="manager-orders.html"><span class="material-symbols-outlined">receipt_long</span>Commandes</a>
+    <a href="manager-menu.html"><span class="material-symbols-outlined">menu_book</span>Menu</a>
+    <a href="manager-staff.html" class="active"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">group</span>Équipe</a>
+    <a href="manager-analytics.html"><span class="material-symbols-outlined">monitoring</span>Statistiques</a>
+    <a href="manager-réservations.html"><span class="material-symbols-outlined">event_seat</span>Réservations</a>
+    <a href="manager-inventory.html"><span class="material-symbols-outlined">inventory</span>Inventaire</a>
+    <a href="manager-settings.html"><span class="material-symbols-outlined">settings</span>Paramètres</a>
+  </nav>
+  <div class="manager-sidebar__footer">
+    <button id="btn-add-member" class="manager-sidebar__cta">+ Ajouter un membre</button>
+    <div class="manager-sidebar__user">
+      <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 font-bold text-sm flex-shrink-0">MD</div>
+      <div class="flex-1 min-w-0"><p class="text-sm font-semibold text-stone-900 truncate">Moussa Diop</p><p class="text-xs text-stone-500">Administrateur</p></div>
+      <button data-action="logout" class="text-stone-400 hover:text-primary transition-colors"><span class="material-symbols-outlined">logout</span></button>
+    </div>
+  </div>
+</aside>
+
+<main class="manager-main overflow-hidden relative">
+  <header class="manager-topbar">
+    <div class="flex items-center gap-6">
+      <h2>Équipe</h2>
+      <div class="h-6 w-px bg-outline-variant/30 hidden md:block"></div>
+      <div class="hidden md:flex gap-5">
+        <button class="font-button text-button active-tab pb-1" data-staff-role="all">Serveurs</button>
+        <button class="font-button text-button text-stone-500 hover:text-amber-700 pb-1 transition-colors" data-staff-role="chef">Cuisiniers</button>
+        <button class="font-button text-button text-stone-500 hover:text-amber-700 pb-1 transition-colors" data-staff-role="livreur">Livreurs</button>
+      </div>
+    </div>
+    <div class="flex items-center gap-4">
+      <div class="relative">
+        <span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-stone-400 text-xl">search</span>
+        <input id="staff-search" class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full w-52 text-sm focus:ring-1 focus:ring-primary outline-none" placeholder="Rechercher un membrea€¦" type="text">
+      </div>
+      <button class="p-2 text-on-surface hover:bg-stone-100 rounded-full transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+    </div>
+  </header>
+
+  <section class="p-8 flex-1 overflow-y-auto h-[calc(100vh-64px)]">
+    <div class="bg-white rounded-xl shadow-sm border border-stone-100 overflow-hidden">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Nom &amp; Prenom</th><th>Rôle</th><th>Telephone</th><th>Statut</th><th class="text-right">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="group" data-staff-row="serveur">
+            <td>
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full overflow-hidden bg-surface-container flex-shrink-0">
+                  <img class="h-full w-full object-cover" alt="Fatou Ndiaye" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKhRMdZ1VNgWuED3jiScsputRC1zH2QBo908ZNR0wFW3_47zLCePORz_FCnaPZ6fU5LgRNYinWJSU2zgrGGd_zNM6-H32jnF8Atj6YnDjcT3UE_e6Wup8mlMy8uFsvGVMw2ZH-7yQOGqD_on5sAzCwyVvoLAtLV9K53jyryiEgd4Y53LYymsjfUm3KvoryUlG9kaSO9tfnvBTBSV8xUo1XPbbea5gUL5F97k9fw64vWvTnCxh6sLU1rqYvU1vA02mBXFykJtNsZoT1">
+                </div>
+                <div>
+                  <div class="font-medium text-sm text-on-surface">Fatou Ndiaye</div>
+                  <div class="text-xs text-on-surface-variant">Inscrit depuis jan. 2023</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="bg-surface-container px-3 py-1 rounded-full text-xs font-semibold text-on-surface-variant">Serveur</span></td>
+            <td class="text-sm text-on-surface-variant font-serif">+221 77 123 45 67</td>
+            <td><span class="badge badge--actif">Actif</span></td>
+            <td>
+              <div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <button class="p-2 text-stone-400 hover:text-primary hover:bg-stone-50 rounded-full transition-all" data-action="edit-staff"><span class="material-symbols-outlined text-lg">edit</span></button>
+                <button class="p-2 text-stone-400 hover:text-primary hover:bg-stone-50 rounded-full transition-all" data-action="view-staff"><span class="material-symbols-outlined text-lg">visibility</span></button>
+                <button class="p-2 text-stone-400 hover:text-error hover:bg-stone-50 rounded-full transition-all" data-action="delete-staff"><span class="material-symbols-outlined text-lg">delete</span></button>
+              </div>
+            </td>
+          </tr>
+          <tr class="group" data-staff-row="chef">
+            <td>
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full overflow-hidden bg-surface-container flex-shrink-0">
+                  <img class="h-full w-full object-cover" alt="Mamadou Ba" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWtFZePqRYQVbo4UJez4E1n62pQgzAdaS8N478SZpMHFXvtEpG76DEUMnJJKTKlUso5mfaPrkP0GIe0-PuCBeyDAeWM7G9ihUMJh1bJZp81h18Za5CF9NLe_8KPl6FouLiFsp1OI6JD3PtbqY5xA4Ep-sJiILgN3GyVt1kJwt4R7z5zhd0TfJqJhIMFBBQX5eHED15MuDALghB9MEYIlDPOmiLtU5t-nwRB0DJY72r9mGqHd-sVTkjSR7e_WSwqXY-agF1591O41u-">
+                </div>
+                <div>
+                  <div class="font-medium text-sm text-on-surface">Mamadou Ba</div>
+                  <div class="text-xs text-on-surface-variant">Inscrit depuis oct. 2022</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="bg-surface-container px-3 py-1 rounded-full text-xs font-semibold text-on-surface-variant">Chef</span></td>
+            <td class="text-sm text-on-surface-variant font-serif">+221 70 987 65 43</td>
+            <td><span class="badge badge--en-service">En service</span></td>
+            <td>
+              <div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <button class="p-2 text-stone-400 hover:text-primary hover:bg-stone-50 rounded-full transition-all" data-action="edit-staff"><span class="material-symbols-outlined text-lg">edit</span></button>
+                <button class="p-2 text-stone-400 hover:text-primary hover:bg-stone-50 rounded-full transition-all" data-action="view-staff"><span class="material-symbols-outlined text-lg">visibility</span></button>
+                <button class="p-2 text-stone-400 hover:text-error hover:bg-stone-50 rounded-full transition-all" data-action="delete-staff"><span class="material-symbols-outlined text-lg">delete</span></button>
+              </div>
+            </td>
+          </tr>
+          <tr class="group" data-staff-row="livreur">
+            <td>
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full overflow-hidden bg-surface-container flex-shrink-0">
+                  <img class="h-full w-full object-cover" alt="Ibrahima Sarr" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD-aKoSHjxncA-mw-r_OqYneZ27NzKvqYQGO9TQjVqxF1cjY-1stWBpguY3h-5LXWT2oHVClQbO6Vct2HyXFJZH6VITrDgfkOG_I6Ot3QuaxOLRJ98EqIAxnM8tS32u5RaQON642e9Us978z6IYQNPxIrtviPzup76djDn79Hlu1xuoxKYw8rmXL_9qm0myiobxXZTB2eOtfqWBw4v2YeWhm3PPx4lCTDlGaOEe1t7PEL-YpJR3i18r1ow2umxKKWwJt6mrJ8q30vJ">
+                </div>
+                <div>
+                  <div class="font-medium text-sm text-on-surface">Ibrahima Sarr</div>
+                  <div class="text-xs text-on-surface-variant">Inscrit depuis mar. 2023</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="bg-surface-container px-3 py-1 rounded-full text-xs font-semibold text-on-surface-variant">Livreur</span></td>
+            <td class="text-sm text-on-surface-variant font-serif">+221 76 456 78 90</td>
+            <td><span class="badge badge--actif">Actif</span></td>
+            <td>
+              <div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <button class="p-2 text-stone-400 hover:text-primary hover:bg-stone-50 rounded-full transition-all" data-action="edit-staff"><span class="material-symbols-outlined text-lg">edit</span></button>
+                <button class="p-2 text-stone-400 hover:text-primary hover:bg-stone-50 rounded-full transition-all" data-action="view-staff"><span class="material-symbols-outlined text-lg">visibility</span></button>
+                <button class="p-2 text-stone-400 hover:text-error hover:bg-stone-50 rounded-full transition-all" data-action="delete-staff"><span class="material-symbols-outlined text-lg">delete</span></button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Panel aperçu -->
+  <aside id="staff-preview-panel" class="fixed top-16 right-0 h-[calc(100vh-64px)] w-80 bg-white border-l border-stone-200/60 shadow-xl z-20 flex flex-col p-6" style="transform:translateX(100%);">
+    <div class="flex items-center justify-between mb-8">
+      <h4 class="font-h3 text-h3">Aperçu</h4>
+      <button id="btn-close-staff-panel" class="p-2 hover:bg-stone-100 rounded-full transition-colors"><span class="material-symbols-outlined">close</span></button>
+    </div>
+    <div class="text-center mb-8">
+      <div class="h-24 w-24 rounded-full overflow-hidden bg-surface-container mx-auto mb-4 border-4 border-amber-50">
+        <img class="h-full w-full object-cover" alt="Fatou Ndiaye" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs4--1EVdkULHj_ykhB3LObD6zMsXjbn6WZPkW7SHF2fBdJ4HsW6ACqzChc7JOZhe7G7nz1hEa3wxFbt0IImapEWYa4Or10-rVLZw3N0P_5CCXbZZdoCnO-YWPlbX1z-oBvxxKWzWoKhtzm45hdL9ikKmynHHAYZnOySxVB4OMuORBiqaM9vk4Kj6dvB_yNaH6NGzTrJX3K93WNP8HQKsd3lt09bvYRW4WPi_FYUzo21f3sYfhlzAtvpdQG_Dco-TTuFoRKn06PdkB">
+      </div>
+      <h3 class="font-h3 text-h3">Fatou Ndiaye</h3>
+      <p class="text-on-surface-variant font-medium">Serveur Senior</p>
+      <div class="mt-2 flex justify-center gap-1">
+        <span class="material-symbols-outlined text-amber-500" style="font-variation-settings:'FILL' 1">star</span>
+        <span class="material-symbols-outlined text-amber-500" style="font-variation-settings:'FILL' 1">star</span>
+        <span class="material-symbols-outlined text-amber-500" style="font-variation-settings:'FILL' 1">star</span>
+        <span class="material-symbols-outlined text-amber-500" style="font-variation-settings:'FILL' 1">star</span>
+        <span class="material-symbols-outlined text-stone-200">star</span>
+      </div>
+    </div>
+    <div class="space-y-5 flex-1">
+      <div class="bg-surface-container-low p-4 rounded-xl">
+        <p class="text-xs font-semibold uppercase tracking-wide text-on-surface-variant mb-3">Performance</p>
+        <div class="grid grid-cols-2 gap-4">
+          <div><div class="font-h3 text-h3 text-primary">1 248</div><div class="text-[10px] uppercase tracking-wide text-stone-500">Commandes</div></div>
+          <div><div class="font-h3 text-h3 text-primary">98%</div><div class="text-[10px] uppercase tracking-wide text-stone-500">Presence</div></div>
+        </div>
+      </div>
+      <div class="space-y-3">
+        <div class="flex items-center justify-between text-sm"><span class="text-stone-500">Satisfaction client</span><span class="font-bold">4.8/5.0</span></div>
+        <div class="w-full bg-stone-200 h-1.5 rounded-full"><div class="bg-amber-600 h-full rounded-full" style="width:96%"></div></div>
+        <div class="flex items-center justify-between text-sm"><span class="text-stone-500">Temps de service</span><span class="font-bold">12 min</span></div>
+        <div class="w-full bg-stone-200 h-1.5 rounded-full"><div class="bg-amber-600 h-full rounded-full" style="width:80%"></div></div>
+      </div>
+    </div>
+    <div class="pt-4 border-t border-stone-100 space-y-2">
+      <button class="btn btn--outline btn--full">Voir le dossier complet</button>
+      <button class="btn btn--ghost btn--full bg-stone-100">Planning de la semaine</button>
+    </div>
+  </aside>
+</main>
+
+<script src="../assets/js/store.js"></script>
+<script src="../assets/js/render.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>
+

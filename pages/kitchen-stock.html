@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alertes Stock — Cuisine Food Pilot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="../assets/js/tailwind-config.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="kds-body" style="min-height:100dvh;" data-page="kds">
+
+  <!-- Header -->
+  <header class="kds-header">
+    <div class="flex items-center gap-4">
+      <a href="kitchen-hub.html" class="p-2 text-stone-400 hover:text-amber-400 rounded-full hover:bg-stone-800 transition-all">
+        <span class="material-symbols-outlined">arrow_back</span>
+      </a>
+      <div>
+        <h1 class="font-h3 text-amber-200 italic">Alertes Stock</h1>
+        <p class="font-label-caps text-[10px] text-stone-400 uppercase tracking-widest">Signaler une rupture d'ingredient</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="font-h3 text-amber-200 hidden md:block" data-live-clock>--:--</span>
+      <a href="kitchen-kds.html" class="flex items-center gap-2 px-4 py-2 bg-amber-700/30 border border-amber-700/50 rounded-full text-amber-300 text-sm hover:bg-amber-700/50 transition-colors">
+        <span class="material-symbols-outlined text-lg">receipt_long</span>
+        Commandes
+      </a>
+    </div>
+  </header>
+
+  <main class="p-6 max-w-2xl mx-auto">
+
+    <!-- Règle metier -->
+    <div class="bg-amber-900/20 border border-amber-800/40 rounded-xl p-4 flex items-start gap-3 mb-8">
+      <span class="material-symbols-outlined text-amber-500 flex-shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1">info</span>
+      <div>
+        <p class="text-amber-200 font-semibold text-sm mb-1">Rôle du cuisinier</p>
+        <p class="text-stone-400 text-sm">Vous <strong class="text-stone-300">signalez</strong> les ruptures — le gérant les gère et passe commande. Indiquez ce qui manque en cuisine pour que l'alerte remonte immediatement.</p>
+      </div>
+    </div>
+
+    <!-- Alertes actives -->
+    <section class="mb-8">
+      <h2 class="font-label-caps text-label-caps text-stone-400 uppercase tracking-widest mb-4">Alertes en cours (2)</h2>
+      <div class="space-y-3" id="active-alerts">
+
+        <div class="bg-red-900/20 border border-red-800/50 rounded-xl p-4 flex items-center justify-between" data-alert-id="1">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-red-400" style="font-variation-settings:'FILL' 1">warning</span>
+            <div>
+              <p class="font-semibold text-red-200">Riz parfume</p>
+              <p class="text-xs text-stone-400 mt-0.5">Signale il y a 12 min a· Stock restant estime : 2 kg</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="px-2 py-1 bg-red-900/40 text-red-400 border border-red-800/40 rounded-full text-xs font-bold uppercase">Critique</span>
+            <button class="p-2 text-stone-500 hover:text-green-400 hover:bg-stone-800 rounded-full transition-colors" data-action="resolve-alert" data-alert-id="1" title="Marquer comme resolu">
+              <span class="material-symbols-outlined text-xl">check_circle</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-red-900/20 border border-red-800/50 rounded-xl p-4 flex items-center justify-between" data-alert-id="2">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-red-400" style="font-variation-settings:'FILL' 1">warning</span>
+            <div>
+              <p class="font-semibold text-red-200">Huile d'arachide</p>
+              <p class="text-xs text-stone-400 mt-0.5">Signale il y a 28 min a· Stock restant estime : 1 L</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="px-2 py-1 bg-red-900/40 text-red-400 border border-red-800/40 rounded-full text-xs font-bold uppercase">Critique</span>
+            <button class="p-2 text-stone-500 hover:text-green-400 hover:bg-stone-800 rounded-full transition-colors" data-action="resolve-alert" data-alert-id="2" title="Marquer comme resolu">
+              <span class="material-symbols-outlined text-xl">check_circle</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Signaler une nouvelle rupture -->
+    <section>
+      <h2 class="font-label-caps text-label-caps text-stone-400 uppercase tracking-widest mb-4">Signaler une rupture</h2>
+      <div class="bg-stone-900 border border-stone-700 rounded-2xl p-6 space-y-5">
+
+        <!-- Selecteur ingredient -->
+        <div>
+          <label class="block font-label-caps text-[10px] text-amber-600 uppercase tracking-widest mb-2">Ingredient concerne</label>
+          <select id="stock-ingredient" class="w-full bg-stone-800 border border-stone-700 text-stone-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-amber-600 transition-colors">
+            <option value="">— Selectionner un ingredient —</option>
+            <option>Riz parfume</option>
+            <option>Riz brise</option>
+            <option>Poulet fermier</option>
+            <option>Bœuf</option>
+            <option>Agneau</option>
+            <option>Poisson capitaine</option>
+            <option>Tomates fraîches</option>
+            <option>Oignons</option>
+            <option>Huile d'arachide</option>
+            <option>Pâte d'arachide</option>
+            <option>Piments seches</option>
+            <option>Citrons</option>
+            <option>Moutarde</option>
+            <option>Patates douces</option>
+            <option>Aubergines</option>
+            <option>Autrea€¦</option>
+          </select>
+        </div>
+
+        <!-- Severite -->
+        <div>
+          <label class="block font-label-caps text-[10px] text-amber-600 uppercase tracking-widest mb-3">Niveau d'urgence</label>
+          <div class="flex gap-3">
+            <label class="flex-1 cursor-pointer">
+              <input type="radio" name="severity" value="faible" class="sr-only peer">
+              <div class="text-center py-3 px-2 rounded-xl border border-stone-700 text-sm font-semibold text-stone-400 peer-checked:border-yellow-600 peer-checked:bg-yellow-900/20 peer-checked:text-yellow-400 transition-all">
+                <span class="material-symbols-outlined block mb-1 text-xl">info</span>
+                Faible
+              </div>
+            </label>
+            <label class="flex-1 cursor-pointer">
+              <input type="radio" name="severity" value="urgent" class="sr-only peer">
+              <div class="text-center py-3 px-2 rounded-xl border border-stone-700 text-sm font-semibold text-stone-400 peer-checked:border-orange-600 peer-checked:bg-orange-900/20 peer-checked:text-orange-400 transition-all">
+                <span class="material-symbols-outlined block mb-1 text-xl">priority_high</span>
+                Urgent
+              </div>
+            </label>
+            <label class="flex-1 cursor-pointer">
+              <input type="radio" name="severity" value="critique" class="sr-only peer" checked>
+              <div class="text-center py-3 px-2 rounded-xl border border-red-700/60 bg-red-900/20 text-sm font-semibold text-red-400 peer-checked:border-red-600 peer-checked:bg-red-900/30 peer-checked:text-red-300 transition-all">
+                <span class="material-symbols-outlined block mb-1 text-xl">emergency</span>
+                Critique
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Note -->
+        <div>
+          <label class="block font-label-caps text-[10px] text-amber-600 uppercase tracking-widest mb-2">Note (optionnel)</label>
+          <textarea id="stock-note" rows="2" class="w-full bg-stone-800 border border-stone-700 text-stone-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-amber-600 transition-colors resize-none placeholder-stone-600" placeholder="Ex: Il en reste pour 2 thieboudiennes maximuma€¦"></textarea>
+        </div>
+
+        <!-- Bouton -->
+        <button id="btn-signal-stock" class="w-full py-4 bg-red-700 hover:bg-red-600 text-white font-button text-button rounded-xl uppercase tracking-widest transition-colors flex items-center justify-center gap-3 text-base">
+          <span class="material-symbols-outlined text-xl">campaign</span>
+          Envoyer l'alerte au gérant
+        </button>
+      </div>
+    </section>
+
+    <!-- Historique recent -->
+    <section class="mt-8">
+      <h2 class="font-label-caps text-label-caps text-stone-400 uppercase tracking-widest mb-4">Historique recent</h2>
+      <div class="space-y-2">
+        <div class="flex items-center justify-between py-3 border-b border-stone-800">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-green-500 text-xl">check_circle</span>
+            <div>
+              <p class="text-stone-300 text-sm font-medium">Tomates fraîches</p>
+              <p class="text-xs text-stone-500">Resolu hier à 14:22 a· par le gérant</p>
+            </div>
+          </div>
+          <span class="text-xs text-stone-600">Hier</span>
+        </div>
+        <div class="flex items-center justify-between py-3 border-b border-stone-800">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-green-500 text-xl">check_circle</span>
+            <div>
+              <p class="text-stone-300 text-sm font-medium">Piments seches</p>
+              <p class="text-xs text-stone-500">Resolu il y a 2 jours a· par le gérant</p>
+            </div>
+          </div>
+          <span class="text-xs text-stone-600">Lun.</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Signaler une rupture
+    document.getElementById('btn-signal-stock')?.addEventListener('click', function() {
+      const ingredient = document.getElementById('stock-ingredient').value;
+      const note = document.getElementById('stock-note').value;
+      const severity = document.querySelector('input[name="severity"]:checked')?.value || 'critique';
+
+      if (!ingredient) {
+        const toast = window.showToast || console.log;
+        if (typeof showToast !== 'undefined') {
+          showToast('Selectionnez un ingredient', 'error');
+        }
+        document.getElementById('stock-ingredient').style.borderColor = '#dc2626';
+        return;
+      }
+
+      this.disabled = true;
+      this.innerHTML = '<span class="material-symbols-outlined text-xl">hourglass_top</span> Envoi en coursa€¦';
+
+      setTimeout(() => {
+        // Ajouter dans la liste des alertes actives
+        const alertsContainer = document.getElementById('active-alerts');
+        const newAlert = document.createElement('div');
+        newAlert.className = 'bg-red-900/20 border border-red-800/50 rounded-xl p-4 flex items-center justify-between animate-fade-in-up';
+        const severityLabel = severity === 'critique' ? 'Critique' : severity === 'urgent' ? 'Urgent' : 'Faible';
+        const severityColor = severity === 'critique' ? 'red' : severity === 'urgent' ? 'orange' : 'yellow';
+        newAlert.innerHTML = `
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-${severityColor}-400" style="font-variation-settings:'FILL' 1">warning</span>
+            <div>
+              <p class="font-semibold text-${severityColor}-200">${ingredient}</p>
+              <p class="text-xs text-stone-400 mt-0.5">Signale à l'instant${note ? ' a· ' + note : ''}</p>
+            </div>
+          </div>
+          <span class="px-2 py-1 bg-${severityColor}-900/40 text-${severityColor}-400 border border-${severityColor}-800/40 rounded-full text-xs font-bold uppercase">${severityLabel}</span>
+        `;
+        alertsContainer.prepend(newAlert);
+
+        // Reset form
+        document.getElementById('stock-ingredient').value = '';
+        document.getElementById('stock-note').value = '';
+        this.disabled = false;
+        this.innerHTML = '<span class="material-symbols-outlined text-xl">campaign</span> Envoyer l\'alerte au gérant';
+
+        if (typeof showToast !== 'undefined') {
+          showToast(`Alerte "${ingredient}" envoyee au gérant !`, 'success');
+        }
+      }, 1200);
+    });
+
+    // Resoudre une alerte
+    document.querySelectorAll('[data-action="resolve-alert"]').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const card = this.closest('[data-alert-id]');
+        if (card) {
+          card.style.opacity = '0.4';
+          card.style.transition = 'opacity 0.3s';
+          setTimeout(() => card.remove(), 400);
+          if (typeof showToast !== 'undefined') showToast('Alerte marquee comme resolue', 'success');
+        }
+      });
+    });
+  </script>
+  <script src="../assets/js/store.js"></script>
+<script src="../assets/js/render.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>
+

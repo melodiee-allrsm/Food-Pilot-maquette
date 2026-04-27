@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paramètres — Food Pilot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="../assets/js/tailwind-config.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="font-body-md text-on-surface" data-page="manager-settings" style="background:#FAFAF7;">
+
+<aside class="manager-sidebar">
+  <div class="manager-sidebar__brand"><h1>Food Pilot</h1><p>Restaurant Manager</p></div>
+  <nav>
+    <a href="manager-dashboard.html"><span class="material-symbols-outlined">dashboard</span>Tableau de bord</a>
+    <a href="manager-orders.html"><span class="material-symbols-outlined">receipt_long</span>Commandes</a>
+    <a href="manager-menu.html"><span class="material-symbols-outlined">menu_book</span>Menu</a>
+    <a href="manager-staff.html"><span class="material-symbols-outlined">group</span>Équipe</a>
+    <a href="manager-analytics.html"><span class="material-symbols-outlined">monitoring</span>Statistiques</a>
+    <a href="manager-réservations.html"><span class="material-symbols-outlined">event_seat</span>Réservations</a>
+    <a href="manager-inventory.html"><span class="material-symbols-outlined">inventory</span>Inventaire</a>
+    <a href="manager-settings.html" class="active"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">settings</span>Paramètres</a>
+  </nav>
+  <div class="manager-sidebar__footer">
+    <div class="manager-sidebar__user">
+      <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 font-bold text-sm flex-shrink-0">MD</div>
+      <div class="flex-1 min-w-0"><p class="text-sm font-semibold text-stone-900 truncate">Moussa Diop</p><p class="text-xs text-stone-500">Administrateur</p></div>
+      <button data-action="logout" class="text-stone-400 hover:text-primary transition-colors"><span class="material-symbols-outlined">logout</span></button>
+    </div>
+  </div>
+</aside>
+
+<main class="manager-main">
+  <header class="manager-topbar">
+    <h2>Paramètres</h2>
+    <button class="btn btn--primary btn--sm">Enregistrer les modifications</button>
+  </header>
+  <div class="p-8 max-w-3xl">
+
+    <!-- Restaurant -->
+    <section class="card p-8 mb-6">
+      <h3 class="font-h3 text-h3 mb-6 flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary">store</span>Informations du restaurant
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="form-field">
+          <label class="form-label">Nom du restaurant</label>
+          <input class="form-input" type="text" value="Food Pilot">
+        </div>
+        <div class="form-field">
+          <label class="form-label">Telephone</label>
+          <input class="form-input" type="tel" value="+221 33 000 00 00">
+        </div>
+        <div class="form-field md:col-span-2">
+          <label class="form-label">Adresse</label>
+          <input class="form-input" type="text" value="123 Avenue Cheikh Anta Diop, Dakar, Senegal">
+        </div>
+        <div class="form-field">
+          <label class="form-label">Email de contact</label>
+          <input class="form-input" type="email" value="contact@baobab-dor.com">
+        </div>
+        <div class="form-field">
+          <label class="form-label">Devise</label>
+          <select class="form-input">
+            <option>FCFA — Franc CFA</option>
+            <option>EUR — Euro</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Horaires -->
+    <section class="card p-8 mb-6">
+      <h3 class="font-h3 text-h3 mb-6 flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary">schedule</span>Horaires d'ouverture
+      </h3>
+      <div class="space-y-4">
+        <div class="flex items-center justify-between py-3 border-b border-stone-100">
+          <div class="flex items-center gap-4">
+            <span class="w-24 text-sm font-medium">Lun — Ven</span>
+            <input type="time" class="border border-stone-200 rounded-lg py-1 px-2 text-sm" value="11:00">
+            <span class="text-stone-400">—</span>
+            <input type="time" class="border border-stone-200 rounded-lg py-1 px-2 text-sm" value="23:00">
+          </div>
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" checked class="w-4 h-4 text-primary border-stone-300 rounded">
+            <span class="text-sm text-stone-500">Ouvert</span>
+          </label>
+        </div>
+        <div class="flex items-center justify-between py-3 border-b border-stone-100">
+          <div class="flex items-center gap-4">
+            <span class="w-24 text-sm font-medium">Samedi</span>
+            <input type="time" class="border border-stone-200 rounded-lg py-1 px-2 text-sm" value="10:00">
+            <span class="text-stone-400">—</span>
+            <input type="time" class="border border-stone-200 rounded-lg py-1 px-2 text-sm" value="00:00">
+          </div>
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" checked class="w-4 h-4 text-primary border-stone-300 rounded">
+            <span class="text-sm text-stone-500">Ouvert</span>
+          </label>
+        </div>
+        <div class="flex items-center justify-between py-3">
+          <div class="flex items-center gap-4">
+            <span class="w-24 text-sm font-medium">Dimanche</span>
+            <input type="time" class="border border-stone-200 rounded-lg py-1 px-2 text-sm" value="12:00">
+            <span class="text-stone-400">—</span>
+            <input type="time" class="border border-stone-200 rounded-lg py-1 px-2 text-sm" value="21:00">
+          </div>
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 text-primary border-stone-300 rounded">
+            <span class="text-sm text-stone-500">Ferme</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Notifications -->
+    <section class="card p-8">
+      <h3 class="font-h3 text-h3 mb-6 flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary">notifications</span>Notifications
+      </h3>
+      <div class="space-y-5">
+        <label class="flex items-center justify-between cursor-pointer">
+          <div><p class="font-medium text-sm">Nouvelles commandes</p><p class="text-xs text-stone-500">Alerte sonore à chaque nouvelle commande</p></div>
+          <div class="relative"><input type="checkbox" checked class="sr-only peer"><div class="w-10 h-5 bg-outline-variant/30 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div></div>
+        </label>
+        <label class="flex items-center justify-between cursor-pointer">
+          <div><p class="font-medium text-sm">Alertes stock critique</p><p class="text-xs text-stone-500">Notification quand le stock passe en dessous du seuil</p></div>
+          <div class="relative"><input type="checkbox" checked class="sr-only peer"><div class="w-10 h-5 bg-outline-variant/30 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div></div>
+        </label>
+        <label class="flex items-center justify-between cursor-pointer">
+          <div><p class="font-medium text-sm">Rapport quotidien</p><p class="text-xs text-stone-500">Recapitulatif journalier par email</p></div>
+          <div class="relative"><input type="checkbox" class="sr-only peer"><div class="w-10 h-5 bg-outline-variant/30 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div></div>
+        </label>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script src="../assets/js/store.js"></script>
+<script src="../assets/js/render.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>
+

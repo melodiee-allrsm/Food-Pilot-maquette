@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espace Cuisinier à Food Pilot</title>
+  <meta name="description" content="Accueil espace cuisinier — KDS, menu et alertes stock.">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="../assets/js/tailwind-config.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body class="kds-body flex flex-col" style="min-height:100dvh;" data-page="kds">
+
+  <!-- Header -->
+  <header class="kds-header">
+    <div class="flex items-center gap-4">
+      <div>
+        <h1 class="font-h3 text-amber-200 italic" id="chef-name">Chef Moussa</h1>
+        <p class="font-label-caps text-[10px] text-stone-400 uppercase tracking-widest">
+          Cuisine — Poste #1
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2 px-3 py-1.5 bg-stone-900 rounded-full border border-stone-700 hidden md:flex">
+        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse-dot"></span>
+        <span class="font-label-caps text-[10px] text-stone-400">EN SERVICE</span>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <span class="font-h3 text-h3 text-amber-200 hidden md:block" data-live-clock>--:--</span>
+      <a href="../index.html" class="p-2 text-stone-400 hover:text-amber-400 rounded-full hover:bg-stone-800 transition-all">
+        <span class="material-symbols-outlined">logout</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Corps principal -->
+  <main class="flex-1 flex flex-col items-center justify-center px-6 py-10 gap-6">
+
+    <!-- Titre -->
+    <div class="text-center mb-4">
+      <h2 class="font-h2 text-h2 text-amber-200 italic mb-2">Votre espace de travail</h2>
+      <p class="text-stone-400 text-sm max-w-xs mx-auto">
+        Interface conçue pour être lue d'un coup d'œil — restez dans votre couloir.
+      </p>
+    </div>
+
+    <!-- Grille -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 w-full max-w-3xl">
+
+      <!-- Commandes -->
+      <a href="kitchen-kds.html" class="group block bg-stone-900 border-2 border-amber-700/50 hover:border-amber-500 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-stone-800 hover:scale-[1.02]">
+        <div class="w-16 h-16 rounded-2xl bg-amber-900/30 border border-amber-700/40 flex items-center justify-center mx-auto mb-4 group-hover:bg-amber-900/50 transition-colors">
+          <span class="material-symbols-outlined text-amber-400 text-4xl" style="font-variation-settings:'FILL' 1">receipt_long</span>
+        </div>
+        <h3 class="font-bold text-amber-200 text-xl mb-2">Commandes</h3>
+        <p class="text-stone-400 text-sm mb-4">File de préparation en temps réel</p>
+
+        <div id="kds-counter" class="inline-flex items-center gap-2 px-3 py-1.5 bg-amber-900/40 border border-amber-700/30 rounded-full">
+          <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse-dot"></span>
+          <span class="font-label-caps text-[10px] text-amber-400">4 COMMANDES ACTIVES</span>
+        </div>
+      </a>
+
+      <!-- Menu -->
+      <a href="kitchen-menu.html" class="group block bg-stone-900 border-2 border-stone-700 hover:border-stone-500 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-stone-800 hover:scale-[1.02]">
+        <div class="w-16 h-16 rounded-2xl bg-stone-800 border border-stone-700 flex items-center justify-center mx-auto mb-4 group-hover:bg-stone-700 transition-colors">
+          <span class="material-symbols-outlined text-stone-300 text-4xl" style="font-variation-settings:'FILL' 1">menu_book</span>
+        </div>
+        <h3 class="font-bold text-stone-200 text-xl mb-2">Menu</h3>
+        <p class="text-stone-400 text-sm mb-4">Recettes, ingrédients, allergènes</p>
+
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-stone-800 border border-stone-700 rounded-full">
+          <span class="material-symbols-outlined text-stone-400 text-sm">lock</span>
+          <span class="font-label-caps text-[10px] text-stone-400">LECTURE SEULE</span>
+        </div>
+      </a>
+
+      <!-- Stock -->
+      <a href="kitchen-stock.html" class="group block bg-stone-900 border-2 border-red-900/50 hover:border-red-700/70 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-stone-800 hover:scale-[1.02]">
+        <div class="w-16 h-16 rounded-2xl bg-red-900/20 border border-red-900/40 flex items-center justify-center mx-auto mb-4 group-hover:bg-red-900/30 transition-colors">
+          <span class="material-symbols-outlined text-red-400 text-4xl" style="font-variation-settings:'FILL' 1">warning</span>
+        </div>
+        <h3 class="font-bold text-stone-200 text-xl mb-2">Alertes Stock</h3>
+        <p class="text-stone-400 text-sm mb-4">Signaler une rupture d'ingrédient</p>
+
+        <div id="stock-alert-badge" class="inline-flex items-center gap-2 px-3 py-1.5 bg-red-900/30 border border-red-800/40 rounded-full">
+          <span class="w-2 h-2 rounded-full bg-red-500"></span>
+          <span class="font-label-caps text-[10px] text-red-400">2 ALERTES EN COURS</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Info -->
+    <div class="w-full max-w-3xl mt-4 bg-stone-900/50 border border-stone-800 rounded-xl p-4 flex items-start gap-3">
+      <span class="material-symbols-outlined text-stone-500 flex-shrink-0 mt-0.5">info</span>
+      <p class="text-stone-500 text-sm">
+        <span class="text-stone-300 font-semibold">Espace cuisinier — accès restreint.</span>
+        Vous avez accès aux commandes, à la consultation du menu (lecture seule) et aux alertes stock. 
+        La gestion du restaurant, des statistiques et des paiements relève exclusivement du gérant.
+      </p>
+    </div>
+
+  </main>
+
+  <script src="../assets/js/store.js"></script>
+<script src="../assets/js/render.js"></script>
+<script src="../assets/js/app.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const chef = params.get('chef') || sessionStorage.getItem('kds_chef') || 'Chef';
+    document.getElementById('chef-name').textContent = chef;
+  </script>
+
+</body>
+</html>

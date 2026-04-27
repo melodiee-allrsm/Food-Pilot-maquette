@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Cuisine — Food Pilot</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="../assets/js/tailwind-config.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body class="kds-body" style="min-height:100dvh;" data-page="kds">
+
+<!-- Header -->
+<header class="kds-header">
+  <div class="flex items-center gap-4">
+    <a href="kitchen-hub.html" class="p-2 text-stone-400 hover:text-amber-400 rounded-full hover:bg-stone-800 transition-all">
+      <span class="material-symbols-outlined">arrow_back</span>
+    </a>
+
+    <div>
+      <h1 class="font-h3 text-amber-200 italic">Menu — Consultation</h1>
+      <div class="flex items-center gap-2 mt-0.5">
+        <span class="material-symbols-outlined text-stone-500 text-sm">lock</span>
+        <p class="font-label-caps text-[10px] text-stone-500 uppercase tracking-widest">
+          LECTURE SEULE — Aucune modification permise
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-3">
+    <span class="font-h3 text-amber-200 hidden md:block" data-live-clock>--:--</span>
+    <a href="kitchen-hub.html" class="flex items-center gap-2 px-4 py-2 bg-stone-800 border border-stone-700 rounded-full text-stone-300 text-sm hover:bg-stone-700 transition-colors">
+      <span class="material-symbols-outlined text-lg">receipt_long</span>
+      Commandes
+    </a>
+  </div>
+</header>
+
+<!-- Filtres -->
+<div class="flex gap-3 px-6 py-4 border-b border-stone-800 overflow-x-auto no-scrollbar">
+  <button class="px-5 py-2 bg-amber-700 text-white rounded-full text-sm font-bold" data-kitch-cat="all">Tout</button>
+  <button class="px-5 py-2 bg-stone-800 text-stone-300 rounded-full text-sm" data-kitch-cat="entree">Entrées</button>
+  <button class="px-5 py-2 bg-stone-800 text-stone-300 rounded-full text-sm" data-kitch-cat="plat">Plats</button>
+  <button class="px-5 py-2 bg-stone-800 text-stone-300 rounded-full text-sm" data-kitch-cat="dessert">Desserts</button>
+  <button class="px-5 py-2 bg-stone-800 text-stone-300 rounded-full text-sm" data-kitch-cat="boisson">Boissons</button>
+</div>
+
+<main class="p-6 max-w-5xl mx-auto">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+    <!-- Thieb -->
+    <div class="bg-stone-900 border border-stone-700 rounded-2xl p-5" data-kitch-item="plat">
+      <h2 class="text-xl text-amber-100 font-bold">Thiéboudienne Royale</h2>
+      <p class="text-sm text-stone-400 mb-3">Plat principal</p>
+
+      <p class="text-xs text-stone-500 mb-2">Ingrédients :</p>
+      <p class="text-stone-300 text-sm">Riz brisé, poisson capitaine, tomates, oignons, huile d’arachide…</p>
+
+      <p class="text-xs text-red-400 mt-3">Allergènes : Poisson, Arachide</p>
+      <p class="text-amber-300 font-bold mt-2">35 — 45 min</p>
+    </div>
+
+    <!-- Yassa -->
+    <div class="bg-stone-900 border border-stone-700 rounded-2xl p-5" data-kitch-item="plat">
+      <h2 class="text-xl text-amber-100 font-bold">Yassa Poulet</h2>
+      <p class="text-sm text-stone-400 mb-3">Plat principal</p>
+
+      <p class="text-stone-300 text-sm">Poulet, oignons, citron, moutarde…</p>
+
+      <p class="text-yellow-400 text-sm mt-3">Allergène : Moutarde</p>
+      <p class="text-amber-300 font-bold mt-2">25 — 30 min</p>
+    </div>
+
+    <!-- Mafé -->
+    <div class="bg-stone-900 border border-stone-700 rounded-2xl p-5" data-kitch-item="plat">
+      <h2 class="text-xl text-amber-100 font-bold">Mafé de bœuf</h2>
+      <p class="text-sm text-stone-400 mb-3">Plat principal</p>
+
+      <p class="text-stone-300 text-sm">Bœuf, pâte d’arachide, tomates…</p>
+
+      <p class="text-red-400 text-sm mt-3">Allergène : Arachide</p>
+      <p class="text-amber-300 font-bold mt-2">40 — 50 min</p>
+    </div>
+
+    <!-- Dibi -->
+    <div class="bg-stone-900 border border-stone-700 rounded-2xl p-5" data-kitch-item="plat">
+      <h2 class="text-xl text-amber-100 font-bold">Dibi d’agneau</h2>
+      <p class="text-sm text-stone-400 mb-3">Plat principal</p>
+
+      <p class="text-stone-300 text-sm">Agneau, moutarde, épices grill…</p>
+
+      <p class="text-yellow-400 text-sm mt-3">Allergène : Moutarde</p>
+      <p class="text-amber-300 font-bold mt-2">20 — 35 min</p>
+    </div>
+
+  </div>
+
+  <!-- Info -->
+  <div class="mt-8 bg-stone-900/60 border border-stone-800 rounded-xl p-4 flex items-center gap-3">
+    <span class="material-symbols-outlined text-stone-600">lock</span>
+    <p class="text-stone-500 text-sm">
+      Menu en <strong class="text-stone-300">lecture seule</strong>. 
+      Toute modification doit être faite par le gérant.
+    </p>
+  </div>
+</main>
+
+<script>
+document.querySelectorAll('[data-kitch-cat]').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('[data-kitch-cat]').forEach(b => {
+      b.classList.remove('bg-amber-700','text-white');
+      b.classList.add('bg-stone-800','text-stone-300');
+    });
+
+    this.classList.add('bg-amber-700','text-white');
+    this.classList.remove('bg-stone-800','text-stone-300');
+
+    const cat = this.dataset.kitchCat;
+
+    document.querySelectorAll('[data-kitch-item]').forEach(item => {
+      item.style.display = (cat === 'all' || item.dataset.kitchItem === cat) ? '' : 'none';
+    });
+  });
+});
+</script>
+
+<script src="../assets/js/store.js"></script>
+<script src="../assets/js/render.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tablette Serveur — Food Pilot</title>
+  <meta name="description" content="Interface serveur — Gestion des tables et prise de commandes.">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="../assets/js/tailwind-config.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="font-body-md text-on-surface bg-background" data-page="waiter" style="min-height:100dvh;overflow:hidden;">
+
+<!-- Topbar -->
+<header class="waiter-topbar">
+  <div class="flex items-center gap-4">
+    <div class="w-9 h-9 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 font-bold text-sm">FS</div>
+    <div>
+      <h1 class="font-h3 text-base font-bold text-stone-900">Fatou Sarr</h1>
+      <p class="text-xs text-stone-500">Service du soir</p>
+    </div>
+    <div class="hidden md:flex items-center gap-2 px-3 py-1.5 bg-green-50 border border-green-200 rounded-full ml-4">
+      <span class="w-2 h-2 rounded-full bg-green-500"></span>
+      <span class="font-label-caps text-[10px] text-green-700">EN SERVICE</span>
+    </div>
+  </div>
+  <div class="flex items-center gap-3">
+    <div class="hidden md:flex items-center gap-2 text-stone-500 text-sm">
+      <span class="material-symbols-outlined text-base">schedule</span>
+      <span data-live-clock>--:--</span>
+    </div>
+    <button class="relative p-2 text-stone-600 hover:bg-stone-100 rounded-full transition-colors">
+      <span class="material-symbols-outlined">notifications</span>
+      <span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-[#FAFAF7]"></span>
+    </button>
+    <a href="../index.html" class="btn btn--ghost btn--sm gap-2 text-stone-500">
+      <span class="material-symbols-outlined">logout</span>
+      <span class="hidden md:inline">Quitter</span>
+    </a>
+  </div>
+</header>
+
+<!-- Layout principal -->
+<main class="flex h-[calc(100dvh-64px)]">
+
+  <!-- Panneau gauche — Plan de salle -->
+  <section class="flex-1 p-6 overflow-y-auto border-r border-stone-200/60" style="background:#FAFAF7;">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="font-h3 text-h3 text-stone-900">Plan de Salle</h2>
+      <div class="flex gap-4 text-xs text-stone-500">
+        <span class="flex items-center gap-1"><span class="w-3 h-3 rounded-full border-2 border-green-500"></span>Libre</span>
+        <span class="flex items-center gap-1"><span class="w-3 h-3 rounded-full border-2 border-red-500"></span>Occupee</span>
+        <span class="flex items-center gap-1"><span class="w-3 h-3 rounded-full border-2 border-amber-500"></span>Reservee</span>
+      </div>
+    </div>
+
+    <!-- Grille de tables -->
+    <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 mb-8">
+      <!-- Table active 04 -->
+      <div class="flex flex-col items-center gap-2 cursor-pointer" data-table-id="4" data-table-status="occupee">
+        <div class="table-circle table-circle--active">
+          <div class="text-center"><span class="block font-bold text-stone-900 text-lg leading-none">04</span><span class="text-[9px] text-red-500 font-semibold uppercase">4 cvts</span></div>
+        </div>
+        <span class="text-xs text-stone-500">Table 04</span>
+      </div>
+      <!-- Tables libres -->
+      <div class="flex flex-col items-center gap-2 cursor-pointer" data-table-id="1" data-table-status="libre">
+        <div class="table-circle table-circle--libre"><div class="text-center"><span class="block font-bold text-stone-600 text-lg">01</span><span class="text-[9px] text-green-600 font-semibold">Libre</span></div></div>
+        <span class="text-xs text-stone-500">Table 01</span>
+      </div>
+      <div class="flex flex-col items-center gap-2 cursor-pointer" data-table-id="2" data-table-status="libre">
+        <div class="table-circle table-circle--libre"><div class="text-center"><span class="block font-bold text-stone-600 text-lg">02</span><span class="text-[9px] text-green-600 font-semibold">Libre</span></div></div>
+        <span class="text-xs text-stone-500">Table 02</span>
+      </div>
+      <div class="flex flex-col items-center gap-2 cursor-pointer" data-table-id="3" data-table-status="réservée">
+        <div class="table-circle table-circle--réservée"><div class="text-center"><span class="block font-bold text-stone-600 text-lg">03</span><span class="text-[9px] text-amber-600 font-semibold">Reservee</span></div></div>
+        <span class="text-xs text-stone-500">Table 03</span>
+      </div>
+      <div class="flex flex-col items-center gap-2 cursor-pointer" data-table-id="5" data-table-status="occupee">
+        <div class="table-circle table-circle--occupee"><div class="text-center"><span class="block font-bold text-white text-lg">05</span><span class="text-[9px] text-red-200 font-semibold">2 cvts</span></div></div>
+        <span class="text-xs text-stone-500">Table 05</span>
+      </div>
+      <div class="flex flex-col items-center gap-2 cursor-pointer" data-table-id="6" data-table-status="libre">
+        <div class="table-circle table-circle--libre"><div class="text-center"><span class="block font-bold text-stone-600 text-lg">06</span><span class="text-[9px] text-green-600 font-semibold">Libre</span></div></div>
+        <span class="text-xs text-stone-500">Table 06</span>
+      </div>
+      <div class="flex flex-col items-center gap-2 cursor-pointer" data-table-id="7" data-table-status="occupee">
+        <div class="table-circle table-circle--occupee"><div class="text-center"><span class="block font-bold text-white text-lg">07</span><span class="text-[9px] text-red-200 font-semibold">6 cvts</span></div></div>
+        <span class="text-xs text-stone-500">Table 07</span>
+      </div>
+      <div class="flex flex-col items-center gap-2 cursor-pointer" data-table-id="8" data-table-status="libre">
+        <div class="table-circle table-circle--libre"><div class="text-center"><span class="block font-bold text-stone-600 text-lg">08</span><span class="text-[9px] text-green-600 font-semibold">Libre</span></div></div>
+        <span class="text-xs text-stone-500">Table 08</span>
+      </div>
+      <div class="flex flex-col items-center gap-2 cursor-pointer" data-table-id="9" data-table-status="réservée">
+        <div class="table-circle table-circle--réservée"><div class="text-center"><span class="block font-bold text-stone-600 text-lg">09</span><span class="text-[9px] text-amber-600 font-semibold">Reservee</span></div></div>
+        <span class="text-xs text-stone-500">Table 09</span>
+      </div>
+      <div class="flex flex-col items-center gap-2 cursor-pointer" data-table-id="10" data-table-status="libre">
+        <div class="table-circle table-circle--libre"><div class="text-center"><span class="block font-bold text-stone-600 text-lg">10</span><span class="text-[9px] text-green-600 font-semibold">Libre</span></div></div>
+        <span class="text-xs text-stone-500">Table 10</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Panneau droit — Detail commande -->
+  <aside id="order-détail-panel" class="w-96 bg-white flex flex-col border-l border-stone-200/60 shadow-lg">
+    <!-- En-tête -->
+    <div class="p-6 border-b border-stone-100">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="font-h3 text-h3"><span data-order-table>Table 04</span></h3>
+        <span class="badge badge--en-cuisine">En Cuisine</span>
+      </div>
+      <div class="flex items-center gap-4 text-sm text-stone-500">
+        <span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">schedule</span>12:32</span>
+        <span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">person</span>Amadou K.</span>
+        <span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">table_restaurant</span>4 couverts</span>
+      </div>
+    </div>
+
+    <!-- Articles -->
+    <div class="flex-1 overflow-y-auto p-6 space-y-4">
+      <div class="flex items-start justify-between gap-3 pb-4 border-b border-stone-50">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600 font-bold flex-shrink-0">à—2</div>
+          <div>
+            <p class="font-semibold text-sm text-stone-900">Thiéboudienne Royale</p>
+            <p class="text-xs text-stone-400">Sans piment, sup. poisson</p>
+          </div>
+        </div>
+        <span class="font-semibold text-sm text-amber-600 flex-shrink-0">7 000 F</span>
+      </div>
+      <div class="flex items-start justify-between gap-3 pb-4 border-b border-stone-50">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600 font-bold flex-shrink-0">à—1</div>
+          <div>
+            <p class="font-semibold text-sm text-stone-900">Yassa Poulet</p>
+            <p class="text-xs text-stone-400">Bien cuit</p>
+          </div>
+        </div>
+        <span class="font-semibold text-sm text-amber-600 flex-shrink-0">2 800 F</span>
+      </div>
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center text-red-500 font-bold flex-shrink-0">à—2</div>
+          <div>
+            <p class="font-semibold text-sm text-stone-900">Jus de Bissap</p>
+            <p class="text-xs text-stone-400"></p>
+          </div>
+        </div>
+        <span class="font-semibold text-sm text-amber-600 flex-shrink-0">1 600 F</span>
+      </div>
+    </div>
+
+    <!-- Total & actions -->
+    <div class="p-6 border-t border-stone-100 space-y-4">
+      <div class="flex items-center justify-between">
+        <span class="text-sm text-stone-500">Sous-total</span>
+        <span class="font-semibold text-stone-700">11 400 F</span>
+      </div>
+      <div class="flex items-center justify-between">
+        <span class="text-sm text-stone-500">Service (10%)</span>
+        <span class="font-semibold text-stone-700">1 140 F</span>
+      </div>
+      <div class="flex items-center justify-between pt-2 border-t border-stone-100">
+        <span class="font-bold text-stone-900">Total</span>
+        <span class="font-h3 text-h3 text-primary">12 540 F</span>
+      </div>
+      <div class="flex gap-3 pt-2">
+        <button id="btn-send-kitchen" class="flex-1 btn btn--primary gap-2">
+          <span class="material-symbols-outlined text-lg">restaurant</span>
+          Envoyer
+        </button>
+        <button class="flex-1 btn btn--outline gap-2">
+          <span class="material-symbols-outlined text-lg">receipt</span>
+          Ajouter
+        </button>
+      </div>
+      <button class="btn btn--full" style="background:#f5f5f4;color:#1c1917;">
+        <span class="material-symbols-outlined mr-2 text-lg">payments</span>
+        Proceder au Paiement
+      </button>
+    </div>
+  </aside>
+</main>
+
+<!-- Bouton nouvelle commande (mobile) -->
+<button id="btn-new-order" class="fixed bottom-6 right-6 z-50 btn btn--primary shadow-xl md:hidden">
+  <span class="material-symbols-outlined">add</span>
+  Nouvelle commande
+</button>
+
+<script src="../assets/js/store.js"></script>
+<script src="../assets/js/render.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>
+
